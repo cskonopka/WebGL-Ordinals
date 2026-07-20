@@ -49,7 +49,20 @@
         h1 {
             font-family: "Audiowide", sans-serif;
             text-align: center;
+            font-size:75px;
             margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-family: "Audiowide", sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        h4 {
+            font-family: "Audiowide", sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
         }
         /* Navigation bar styles */
         
@@ -59,7 +72,8 @@
         }
         
         .container .my-5 {
-            margin-top: 3rem!important;
+            margin-top: 3rem !important;
+            margin-bottom: 3rem !important;
         }
         
         .navbar {
@@ -128,6 +142,95 @@
             font-size: 20px;
             margin-right: 15px;
         }
+        /* Global header lock: keeps nav height/baseline identical on every page. */
+        
+        body>nav.navbar {
+            margin: 0 0 10px 0 !important;
+            padding: 0.5rem 0 !important;
+            min-height: 56px !important;
+            display: flex !important;
+            align-items: center !important;
+            font-family: "Audiowide", sans-serif !important;
+            line-height: 1.5 !important;
+        }
+        
+        body>nav.navbar .container-fluid {
+            min-height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            padding-left: 0.75rem !important;
+            padding-right: 0.75rem !important;
+        }
+        
+        body>nav.navbar .navbar-brand {
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding-top: 0.3125rem !important;
+            padding-bottom: 0.3125rem !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            line-height: 1.5 !important;
+            font-family: "Audiowide", sans-serif !important;
+            color: white !important;
+        }
+        
+        body>nav.navbar .navbar-collapse {
+            align-items: center !important;
+        }
+        
+        body>nav.navbar .navbar-nav {
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 0 0 auto !important;
+            padding: 0 !important;
+            list-style: none !important;
+        }
+        
+        body>nav.navbar .navbar-nav .nav-item {
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.5 !important;
+            list-style: none !important;
+            white-space: normal !important;
+            max-width: none !important;
+            width: auto !important;
+        }
+        
+        body>nav.navbar .navbar-nav .nav-link {
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 0.5rem 1rem !important;
+            line-height: 1.5 !important;
+            font-size: 1.2rem !important;
+            font-family: "Audiowide", sans-serif !important;
+            color: white !important;
+            text-align: left !important;
+            transform: none !important;
+        }
+        
+        body>nav.navbar .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+        }
+        
+        body>nav.navbar .navbar-toggler {
+            margin: 0 !important;
+            padding: 0.25rem 0.75rem !important;
+            line-height: 1 !important;
+        }
+        
+        @media (min-width: 992px) {
+            body>nav.navbar.navbar-expand-lg .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto !important;
+            }
+            body>nav.navbar.navbar-expand-lg .navbar-nav {
+                flex-direction: row !important;
+            }
+        }
     </style>
 </head>
 
@@ -140,7 +243,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="container-fluid">
             <!-- Site Title -->
-            <a class="navbar-brand" href="./index.html">webglo</a>
+            <!-- <a class="navbar-brand" href="./index.html">webglo</a> -->
 
             <!-- Toggle Button for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -153,10 +256,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./about.html">about</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li> -->
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tutorial.html">tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./docs.html">docs</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -165,7 +270,9 @@
     <!-- Content Container -->
     <div class="container my-5">
         <!-- <h1>WebGL Ordinals</h1> -->
-        <h1>decentralized video art on the Bitcoin blockchain</h1>
+        <h1>webglo</h1>
+        <h2>decentralized video art on the Bitcoin blockchain</h2>
+        <h4>created by cskonopka</h4>
         <!-- Footer -->
         <footer>
             <nav>
@@ -173,7 +280,7 @@
                 <a href="https://www.youtube.com/cskonopka " target="_blank " class="nav-link d-inline ">
                     <i class="fab fa-youtube "></i>
                 </a>
-                <a href="https://github.com/vondas-network/webglo" target="_blank " class="nav-link d-inline ">
+                <a href="https://github.com/schwwaaak/webglo" target="_blank " class="nav-link d-inline ">
                     <i class="fab fa-github "></i>
                 </a>
                 <a href="https://www.instagram.com/cskonopka/ " target="_blank " class="nav-link d-inline ">
