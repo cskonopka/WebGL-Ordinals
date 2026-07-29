@@ -259,59 +259,6 @@
                 margin-top: 0;
             }
         }
-
-        /* Schwwaaa footer logo — requested footer block, footer-sized image */
-        .schwwaaa-footer {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            padding: 15px 0;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .schwwaaa-footer-logo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            line-height: 1;
-        }
-
-        .schwwaaa-footer-image {
-            display: block;
-            width: min(168px, 44vw);
-            height: auto;
-            object-fit: contain;
-            opacity: 0.9;
-            filter: drop-shadow(0 0 12px rgba(255,255,255,0.22))
-                    drop-shadow(0 0 22px rgba(13,110,253,0.18));
-            transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .schwwaaa-footer-logo:hover .schwwaaa-footer-image {
-            opacity: 1;
-            transform: translateY(-1px);
-            filter: drop-shadow(0 0 14px rgba(255,255,255,0.35))
-                    drop-shadow(0 0 28px rgba(13,110,253,0.32));
-        }
-
-        .schwwaaa-footer-label {
-            display: block;
-            margin-top: 8px;
-            color: rgba(255,255,255,0.54);
-            font-size: 0.58rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 575.98px) {
-            .schwwaaa-footer-image {
-                height: 18px;
-                max-width: 84px;
-            }
-        }
-
     </style>
 </head>
 
@@ -420,10 +367,11 @@
         // Initialize grid
         createGrid();
     </script>
-<footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
-    <a class="schwwaaa-footer-logo" href="https://linktr.ee/schwwaaa" target="_blank" rel="noopener noreferrer">
+    <footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
+    <a class="schwwaaa-footer-logo" href="https://github.com/schwwaaa" target="_blank" rel="noopener noreferrer">
         <img class="schwwaaa-footer-image" src="./assets/schwwaaa-logo.png" alt="schwwaaa">
     </a>
+    <span class="schwwaaa-footer-label">studio mark</span>
 </footer>
 </body>
 

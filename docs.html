@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@
     <title>Webglo Documentation — Technical Reference</title>
     <style>
         /* Fullscreen Responsive Background Iframe — taken from the uploaded index style */
-        
         .background-iframe {
             position: fixed;
             top: 0;
@@ -29,7 +27,7 @@
             object-position: center;
             border: 0;
         }
-        
+
         body {
             margin: 0;
             overflow-y: auto;
@@ -40,7 +38,7 @@
             min-height: 100vh;
             font-family: "Audiowide", sans-serif;
         }
-        
+
         body::before {
             content: "";
             position: fixed;
@@ -49,16 +47,16 @@
             pointer-events: none;
             background: rgba(0, 0, 0, 0.22);
         }
-        
+
         a {
             color: white;
             text-underline-offset: 0.2em;
         }
-        
+
         a:hover {
             color: #0d6efd;
         }
-        
+
         h1 {
             font-family: "Audiowide", sans-serif;
             text-align: center;
@@ -66,7 +64,7 @@
             margin-bottom: 40px;
             line-height: 1.12;
         }
-        
+
         h2 {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -74,20 +72,20 @@
             margin-bottom: 5px;
             margin-top: 25px;
         }
-        
+
         h3 {
             font-family: "Audiowide", sans-serif;
             text-align: left;
             margin-left: 130px;
             margin-top: 25px;
         }
-        
+
         h4 {
             font-family: "Audiowide", sans-serif;
             margin-left: 130px;
             margin-top: 20px;
         }
-        
+
         p {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -96,7 +94,7 @@
             margin-bottom: 20px;
             line-height: 1.75;
         }
-        
+
         li {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -108,61 +106,61 @@
             line-height: 1.7;
             margin-bottom: 7px;
         }
-        
+
         nav {
             font-family: "Audiowide", sans-serif;
             margin-bottom: 10px;
         }
-        
+
         .navbar {
             justify-content: space-between;
         }
-        
+
         .navbar-nav .nav-link {
             color: white;
             font-size: 1.2rem;
             transition: color 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: #0d6efd;
         }
-        
+
         .navbar.bg-transparent {
             background-color: transparent !important;
         }
-        
+
         .navbar-toggler {
             border-color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .content-wrap {
             width: min(1320px, calc(100% - 28px));
             margin: 0 auto;
         }
-        
+
         .container.my-5 {
             margin-top: 3rem !important;
         }
-        
+
         .page-title {
             max-width: 1180px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
+            text-shadow: 0 0 18px rgba(0,0,0,0.65);
         }
-        
+
         .hero-note,
         .page-note {
             text-align: center;
             max-width: 980px;
             margin-left: auto;
             margin-right: auto;
-            color: rgba(255, 255, 255, 0.86);
-            text-shadow: 0 0 16px rgba(0, 0, 0, 0.74);
+            color: rgba(255,255,255,0.86);
+            text-shadow: 0 0 16px rgba(0,0,0,0.74);
         }
-        
+
         .hero-meta {
             display: flex;
             flex-wrap: wrap;
@@ -171,47 +169,47 @@
             margin: 0 auto 32px;
             padding: 0 12px;
         }
-        
+
         .chip {
             display: inline-flex;
             align-items: center;
             min-height: 32px;
             padding: 6px 10px;
-            border: 1px solid rgba(255, 255, 255, 0.24);
+            border: 1px solid rgba(255,255,255,0.24);
             border-radius: 999px;
-            background: rgba(0, 0, 0, 0.22);
+            background: rgba(0,0,0,0.22);
             backdrop-filter: blur(8px);
             font-size: 0.72rem;
         }
-        
+
         footer {
             padding: 15px 0;
             text-align: center;
             margin-top: auto;
             width: 100%;
         }
-        
+
         footer .nav-link {
             color: white;
             font-size: 1.1rem;
             margin: 0 10px;
             transition: color 0.3s ease;
         }
-        
+
         footer .nav-link:hover {
             color: #0d6efd;
         }
-        
+
         footer .custom-text {
             color: white;
             font-size: 1.1rem;
         }
-        
+
         footer .custom-text i {
             font-size: 20px;
             margin-right: 15px;
         }
-        
+
         .grid-item img,
         .example-card img {
             width: 100%;
@@ -221,25 +219,25 @@
             transition: transform 0.2s ease-in-out;
             display: block;
         }
-        
+
         .grid-item img:hover,
         .example-card img:hover {
             transform: scale(1.05);
         }
-        
+
         .grid-item a,
         .example-card {
             display: block;
             color: white;
             text-decoration: none;
         }
-        
+
         .example-card {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
         }
-        
+
         .example-card::after {
             content: attr(data-label);
             position: absolute;
@@ -248,18 +246,18 @@
             bottom: 8px;
             padding: 6px 8px;
             border-radius: 999px;
-            background: rgba(0, 0, 0, 0.58);
+            background: rgba(0,0,0,0.58);
             color: white;
             font-size: 0.62rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .container22 {
             padding-bottom: 32px;
         }
-        
+
         .page-panel,
         .section,
         .sidebar,
@@ -272,23 +270,23 @@
         .tech-pill,
         .gallery-empty {
             background: rgba(0, 0, 0, 0.24);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255,255,255,0.14);
             border-radius: 10px;
             backdrop-filter: blur(8px);
         }
-        
+
         .page-panel {
             padding: 24px 0 30px;
             margin-bottom: 30px;
         }
-        
+
         .page-layout {
             display: grid;
             grid-template-columns: 260px minmax(0, 1fr);
             gap: 24px;
             align-items: start;
         }
-        
+
         .sidebar {
             position: sticky;
             top: 86px;
@@ -296,113 +294,113 @@
             max-height: calc(100vh - 110px);
             overflow: auto;
         }
-        
+
         .sidebar-title {
             margin: 0 0 10px;
             font-size: 0.85rem;
             color: white;
         }
-        
+
         .toc {
             display: grid;
             gap: 4px;
         }
-        
+
         .toc a {
             display: block;
             padding: 7px 8px;
             border-radius: 8px;
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(255,255,255,0.78);
             text-decoration: none;
             font-size: 0.72rem;
             line-height: 1.35;
         }
-        
+
         .toc a:hover,
         .toc a.active {
             color: #0d6efd;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,0.08);
         }
-        
+
         .main {
             min-width: 0;
         }
-        
+
         .mobile-toc {
             display: none;
             margin-bottom: 18px;
         }
-        
+
         .mobile-toc summary {
             cursor: pointer;
             padding: 12px 14px;
         }
-        
+
         .mobile-toc .toc {
             padding: 0 10px 12px;
         }
-        
+
         .section {
             padding: 24px 0;
             margin-bottom: 18px;
             scroll-margin-top: 92px;
         }
-        
+
         .section h2 {
             margin-top: 0;
         }
-        
+
         .step-kicker,
         .eyebrow,
         .kicker {
             display: block;
-            color: rgba(255, 255, 255, 0.76);
+            color: rgba(255,255,255,0.76);
             margin-left: 130px;
             margin-bottom: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             font-size: 0.72rem;
         }
-        
+
         .callout {
             margin: 18px 130px 22px;
             padding: 14px 16px;
-            color: rgba(255, 255, 255, 0.86);
+            color: rgba(255,255,255,0.86);
         }
-        
+
         .callout strong {
             color: white;
         }
-        
+
         .code-card {
             margin: 18px 130px 24px;
             overflow: hidden;
         }
-        
+
         .code-head {
             display: flex;
             justify-content: space-between;
             gap: 12px;
             align-items: center;
             padding: 9px 11px 9px 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
         }
-        
+
         .code-label {
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(255,255,255,0.78);
             font-size: 0.72rem;
         }
-        
+
         .copy-button {
             color: white;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 7px;
             padding: 6px 9px;
             font-family: "Audiowide", sans-serif;
             font-size: 0.68rem;
         }
-        
+
         pre {
             margin: 0;
             padding: 16px;
@@ -411,20 +409,20 @@
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
             font-size: 0.78rem;
             line-height: 1.58;
-            background: rgba(0, 0, 0, 0.30);
+            background: rgba(0,0,0,0.30);
         }
-        
+
         code {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
         }
-        
-         :not(pre)>code {
+
+        :not(pre) > code {
             padding: 0.12em 0.32em;
             border-radius: 5px;
-            background: rgba(0, 0, 0, 0.30);
+            background: rgba(0,0,0,0.30);
             color: white;
         }
-        
+
         .grid-2,
         .tech-band {
             display: grid;
@@ -432,60 +430,59 @@
             gap: 12px;
             margin: 18px 130px;
         }
-        
+
         .mini-card,
         .tech-pill {
             padding: 14px;
         }
-        
+
         .mini-card h3,
         .tech-pill strong {
             margin-left: 0;
             margin-top: 0;
             display: block;
         }
-        
+
         .mini-card p,
         .mini-card li,
         .tech-pill span {
             margin-left: 0;
             margin-right: 0;
         }
-        
+
         .data-table-wrap {
             overflow-x: auto;
             margin: 18px 130px 24px;
         }
-        
+
         table {
             width: 100%;
             min-width: 640px;
             border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.20);
+            background: rgba(0,0,0,0.20);
         }
-        
-        th,
-        td {
+
+        th, td {
             padding: 12px 13px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            color: rgba(255, 255, 255, 0.86);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.86);
             vertical-align: top;
             font-size: 0.78rem;
             line-height: 1.55;
         }
-        
+
         th {
             color: white;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,0.08);
         }
-        
+
         .flow {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 8px;
             margin: 18px 130px;
         }
-        
+
         .flow-item {
             min-height: 78px;
             display: grid;
@@ -494,19 +491,19 @@
             padding: 10px;
             font-size: 0.72rem;
         }
-        
+
         .checklist {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .checklist li {
-            border-left: 2px solid rgba(13, 110, 253, 0.72);
-            background: rgba(0, 0, 0, 0.18);
+            border-left: 2px solid rgba(13,110,253,0.72);
+            background: rgba(0,0,0,0.18);
             border-radius: 0 8px 8px 0;
             padding: 8px 10px;
         }
-        
+
         .reading-progress {
             position: fixed;
             top: 0;
@@ -516,121 +513,58 @@
             background: #0d6efd;
             z-index: 1000;
         }
-        
+
         .site-footer {
             width: min(1320px, calc(100% - 28px));
             margin: 30px auto 40px;
             padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.16);
+            border-top: 1px solid rgba(255,255,255,0.16);
             display: flex;
             justify-content: space-between;
             gap: 18px;
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(255,255,255,0.78);
             font-size: 0.75rem;
         }
-        
+
         .footer-links {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-        
+
         @media (max-width: 992px) {
-            h2 {
-                margin-left: 40px;
-            }
-            h3,
-            h4,
-            p,
-            li,
-            .step-kicker,
-            .eyebrow,
-            .kicker {
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-            .callout,
-            .code-card,
-            .data-table-wrap,
-            .flow,
-            .grid-2,
-            .tech-band {
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-            .page-layout {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                display: none;
-            }
-            .mobile-toc {
-                display: block;
-            }
-            .flow {
-                grid-template-columns: 1fr;
-            }
+            h2 { margin-left: 40px; }
+            h3, h4, p, li, .step-kicker, .eyebrow, .kicker { margin-left: 50px; margin-right: 50px; }
+            .callout, .code-card, .data-table-wrap, .flow, .grid-2, .tech-band { margin-left: 50px; margin-right: 50px; }
+            .page-layout { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .mobile-toc { display: block; }
+            .flow { grid-template-columns: 1fr; }
         }
-        
+
         @media (max-width: 680px) {
-            .container.my-5 {
-                margin-top: 2rem !important;
-            }
-            h1 {
-                margin-top: 0;
-                font-size: clamp(1.55rem, 8vw, 2.5rem);
-            }
-            h2 {
-                margin-left: 0;
-                font-size: 1.25rem;
-            }
-            h3,
-            h4,
-            p,
-            li,
-            .step-kicker,
-            .eyebrow,
-            .kicker {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .callout,
-            .code-card,
-            .data-table-wrap,
-            .flow,
-            .grid-2,
-            .tech-band {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .page-panel,
-            .section {
-                padding: 18px 14px;
-            }
-            .grid-2,
-            .tech-band {
-                grid-template-columns: 1fr;
-            }
-            .site-footer {
-                flex-direction: column;
-            }
-            pre {
-                font-size: 0.68rem;
-            }
+            .container.my-5 { margin-top: 2rem !important; }
+            h1 { margin-top: 0; font-size: clamp(1.55rem, 8vw, 2.5rem); }
+            h2 { margin-left: 0; font-size: 1.25rem; }
+            h3, h4, p, li, .step-kicker, .eyebrow, .kicker { margin-left: 0; margin-right: 0; }
+            .callout, .code-card, .data-table-wrap, .flow, .grid-2, .tech-band { margin-left: 0; margin-right: 0; }
+            .page-panel, .section { padding: 18px 14px; }
+            .grid-2, .tech-band { grid-template-columns: 1fr; }
+            .site-footer { flex-direction: column; }
+            pre { font-size: 0.68rem; }
         }
-        
+
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+            html { scroll-behavior: auto; }
             .grid-item img,
             .example-card img {
                 transition: none;
             }
         }
+
+    
         /* Global header lock: keeps nav height/baseline identical on every page. */
-        
-        body>nav.navbar {
+        body > nav.navbar {
             margin: 0 0 10px 0 !important;
             padding: 0.5rem 0 !important;
             min-height: 56px !important;
@@ -639,16 +573,16 @@
             font-family: "Audiowide", sans-serif !important;
             line-height: 1.5 !important;
         }
-        
-        body>nav.navbar .container-fluid {
+
+        body > nav.navbar .container-fluid {
             min-height: 40px !important;
             display: flex !important;
             align-items: center !important;
             padding-left: 0.75rem !important;
             padding-right: 0.75rem !important;
         }
-        
-        body>nav.navbar .navbar-brand {
+
+        body > nav.navbar .navbar-brand {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -660,20 +594,20 @@
             font-family: "Audiowide", sans-serif !important;
             color: white !important;
         }
-        
-        body>nav.navbar .navbar-collapse {
+
+        body > nav.navbar .navbar-collapse {
             align-items: center !important;
         }
-        
-        body>nav.navbar .navbar-nav {
+
+        body > nav.navbar .navbar-nav {
             display: flex !important;
             align-items: center !important;
             margin: 0 0 0 auto !important;
             padding: 0 !important;
             list-style: none !important;
         }
-        
-        body>nav.navbar .navbar-nav .nav-item {
+
+        body > nav.navbar .navbar-nav .nav-item {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -684,8 +618,8 @@
             max-width: none !important;
             width: auto !important;
         }
-        
-        body>nav.navbar .navbar-nav .nav-link {
+
+        body > nav.navbar .navbar-nav .nav-link {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -697,35 +631,37 @@
             text-align: left !important;
             transform: none !important;
         }
-        
-        body>nav.navbar .navbar-nav .nav-link:hover {
+
+        body > nav.navbar .navbar-nav .nav-link:hover {
             color: #0d6efd !important;
         }
-        
-        body>nav.navbar .navbar-toggler {
+
+        body > nav.navbar .navbar-toggler {
             margin: 0 !important;
             padding: 0.25rem 0.75rem !important;
             line-height: 1 !important;
         }
-        
+
         @media (min-width: 992px) {
-            body>nav.navbar.navbar-expand-lg .navbar-collapse {
+            body > nav.navbar.navbar-expand-lg .navbar-collapse {
                 display: flex !important;
                 flex-basis: auto !important;
             }
-            body>nav.navbar.navbar-expand-lg .navbar-nav {
+
+            body > nav.navbar.navbar-expand-lg .navbar-nav {
                 flex-direction: row !important;
             }
         }
+
+    
         /* Webglo nav icon + Schwwaaa footer image */
-        
         .navbar-brand-logo {
             display: block;
             width: 44px;
             height: 44px;
             object-fit: contain;
         }
-        
+
         .schwwaaa-footer {
             position: relative;
             z-index: 1;
@@ -734,57 +670,62 @@
             text-align: center;
             font-family: "Audiowide", sans-serif;
         }
-        
+
         .schwwaaa-footer-logo {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .schwwaaa-footer-image {
             display: block;
             width: min(168px, 44vw);
             height: auto;
             object-fit: contain;
             opacity: 0.9;
-            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.22)) drop-shadow(0 0 22px rgba(13, 110, 253, 0.18));
+            filter: drop-shadow(0 0 12px rgba(255,255,255,0.22))
+                    drop-shadow(0 0 22px rgba(13,110,253,0.18));
             transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
         }
-        
+
         .schwwaaa-footer-logo:hover .schwwaaa-footer-image {
             opacity: 1;
             transform: translateY(-1px);
-            filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 28px rgba(13, 110, 253, 0.32));
+            filter: drop-shadow(0 0 14px rgba(255,255,255,0.35))
+                    drop-shadow(0 0 28px rgba(13,110,253,0.32));
         }
-        
+
         .schwwaaa-footer-label {
             display: block;
             margin-top: 8px;
-            color: rgba(255, 255, 255, 0.54);
+            color: rgba(255,255,255,0.54);
             font-size: 0.58rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
-        
+
         @media (max-width: 575.98px) {
             .navbar-brand-logo {
                 width: 38px;
                 height: 38px;
             }
+
             .schwwaaa-footer {
                 padding: 22px 0 30px;
             }
+
             .schwwaaa-footer-image {
                 width: min(138px, 50vw);
             }
+
             .schwwaaa-footer-label {
                 font-size: 0.52rem;
             }
         }
-    </style>
-</head>
 
+</style>
+</head>
 <body>
     <div class="reading-progress" aria-hidden="true"></div>
     <iframe class="background-iframe" src="https://ordinals.com/content/3f838fb74263af62a32240844a5976ffdab0c4b182e5b4c1011111fd05f215e8i0" frameborder="0" title="webglo background inscription" aria-hidden="true" tabindex="-1"></iframe>
@@ -820,7 +761,8 @@
     <div class="container my-5">
         <!-- <p class="hero-note">technical reference / WebGL / GLSL / Bitcoin Ordinals</p> -->
         <h1 class="page-title">webglo documentation</h1>
-        <p class="hero-note">Architecture, shader interfaces, responsive rendering, diagnostics, inscription mechanics, sandbox behavior, recursion, file limits, portability rules, and project records.</p>
+        <p class="hero-note">Architecture, shader interfaces, responsive rendering, diagnostics, inscription mechanics,
+      sandbox behavior, recursion, file limits, portability rules, and project records.</p>
         <div class="hero-meta"><span class="chip">WebGL 1.0</span><span class="chip">GLSL ES 1.00</span><span class="chip">text/html</span><span class="chip">commit / reveal</span></div>
         <footer>
             <nav>
@@ -839,175 +781,160 @@
 
     <main class="content-wrap">
         <div class="page-layout">
-            <aside aria-label="Documentation table of contents" class="sidebar">
-                <p class="sidebar-title">Documentation</p>
-                <nav class="toc"><a href="#overview">System overview</a>
-                    <a href="#architecture">Rendering architecture</a>
-                    <a href="#file-contract">Single-file contract</a>
-                    <a href="#runtime">Runtime lifecycle</a>
-                    <a href="#shaders">Shader interface</a>
-                    <a href="#resolution">Resolution and input</a>
-                    <a href="#diagnostics">Compilation diagnostics</a>
-                    <a href="#ordinals-runtime">Ordinals runtime</a>
-                    <a href="#inscription-model">Commit and reveal</a>
-                    <a href="#limits-fees">Limits and fees</a>
-                    <a href="#recursion">Recursive content</a>
-                    <a href="#portability">Portability rules</a>
-                    <a href="#browser-support">Browser support</a>
-                    <a href="#inscriptions">Webglo inscriptions</a>
-                    <a href="#glossary">Glossary</a>
-                    <a href="#references">Technical references</a></nav>
-            </aside>
-            <main class="main">
-                <details class="mobile-toc">
-                    <summary>Jump to a section</summary>
-                    <nav class="toc"><a href="#overview">System overview</a>
-                        <a href="#architecture">Rendering architecture</a>
-                        <a href="#file-contract">Single-file contract</a>
-                        <a href="#runtime">Runtime lifecycle</a>
-                        <a href="#shaders">Shader interface</a>
-                        <a href="#resolution">Resolution and input</a>
-                        <a href="#diagnostics">Compilation diagnostics</a>
-                        <a href="#ordinals-runtime">Ordinals runtime</a>
-                        <a href="#inscription-model">Commit and reveal</a>
-                        <a href="#limits-fees">Limits and fees</a>
-                        <a href="#recursion">Recursive content</a>
-                        <a href="#portability">Portability rules</a>
-                        <a href="#browser-support">Browser support</a>
-                        <a href="#inscriptions">Webglo inscriptions</a>
-                        <a href="#glossary">Glossary</a>
-                        <a href="#references">Technical references</a></nav>
-                </details>
-                <section class="section" id="overview">
-                    <span class="step-kicker">Reference</span>
-                    <h2>System overview</h2>
-                    <p>
-                        Webglo is a browser-rendered video-art project in which each artwork can be represented as an HTML inscription containing native JavaScript and GLSL. The browser provides the WebGL API, the GPU executes the shaders, and the Ordinals content server returns
-                        the inscribed HTML as web content.
-                    </p>
-                    <div class="grid-2">
-                        <div class="mini-card">
-                            <h3>Runtime layer</h3>
-                            <p>HTML canvas, native JavaScript, WebGL context, GPU buffers, uniforms, and shaders.</p>
-                        </div>
-                        <div class="mini-card">
-                            <h3>Bitcoin layer</h3>
-                            <p>On-chain inscription content, commit/reveal transactions, a carrier sat, and an inscription ID.</p>
-                        </div>
-                    </div>
-                    <div class="callout">
-                        WebGL is a low-level, cross-platform browser API based on OpenGL ES. WebGL 1 exposes the OpenGL ES 2.0 feature set; WebGL 2 exposes much of OpenGL ES 3.0.
-                    </div>
-                </section>
-                <section class="section" id="architecture">
-                    <span class="step-kicker">Rendering</span>
-                    <h2>Rendering architecture</h2>
-                    <div aria-label="Rendering architecture" class="flow">
-                        <div class="flow-item">Canvas<br/>element</div>
-                        <div class="flow-item">WebGLRendering<br/>Context</div>
-                        <div class="flow-item">Linked<br/>program</div>
-                        <div class="flow-item">Fullscreen<br/>geometry</div>
-                        <div class="flow-item">Fragment<br/>output</div>
-                    </div>
-                    <h3>Core objects</h3>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Object</th>
-                                    <th>Responsibility</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>HTMLCanvasElement</code></td>
-                                    <td>Defines the browser surface and CSS display size.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>WebGLRenderingContext</code></td>
-                                    <td>Exposes WebGL 1 state, resources, shader compilation, and draw calls.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>WebGLShader</code></td>
-                                    <td>Stores a compiled vertex or fragment shader.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>WebGLProgram</code></td>
-                                    <td>Links compatible vertex and fragment stages into an executable GPU program.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>WebGLBuffer</code></td>
-                                    <td>Stores fullscreen vertex positions.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>WebGLUniformLocation</code></td>
-                                    <td>Addresses per-frame values such as time, resolution, and pointer position.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Why fullscreen triangles</h3>
-                    <p>
-                        The runtime draws two triangles covering clip space from -1 to 1. Every covered pixel invokes the fragment shader, allowing the shader to generate the entire image without textures or scene geometry.
-                    </p>
-                </section>
-                <section class="section" id="file-contract">
-                    <span class="step-kicker">Packaging</span>
-                    <h2>Single-file contract</h2>
-                    <p>
-                        A Webglo inscription should remain understandable as one web response with a valid HTML MIME type. The simplest portable form embeds all CSS, JavaScript, vertex GLSL, and fragment GLSL directly in the HTML document.
-                    </p>
-                    <ul class="checklist">
-                        <li>One HTML document is the entry point.</li>
-                        <li>No npm bundle or build artifact is required at viewing time.</li>
-                        <li>No ordinary off-chain resources are required for the core render.</li>
-                        <li>The canvas has an explicit backing resolution before drawing.</li>
-                        <li>Shader compile and program link failures are surfaced visibly.</li>
-                        <li>The page remains functional inside an iframe-based inscription viewer.</li>
-                    </ul>
-                    <h3>Recommended MIME type</h3>
-                    <p><code>text/html;charset=utf-8</code></p>
-                </section>
-                <section class="section" id="runtime">
-                    <span class="step-kicker">Lifecycle</span>
-                    <h2>Runtime lifecycle</h2>
-                    <ol>
-                        <li>Resolve the canvas.</li>
-                        <li>Create the WebGL context and stop with a visible fallback if unavailable.</li>
-                        <li>Compile the vertex shader.</li>
-                        <li>Compile the fragment shader.</li>
-                        <li>Link both shaders into a program.</li>
-                        <li>Create and upload fullscreen geometry.</li>
-                        <li>Resolve attribute and uniform locations once.</li>
-                        <li>On each frame, resize, set the viewport, update uniforms, and draw.</li>
-                        <li>Handle context loss or recover by reinitializing resources.</li>
-                    </ol>
-                    <div class="callout warning">
-                        WebGL is stateful. Binding the wrong program or buffer, failing to enable an attribute, or using a stale location can produce a blank frame without a JavaScript exception.
-                    </div>
-                </section>
-                <section class="section" id="shaders">
-                    <span class="step-kicker">GLSL interface</span>
-                    <h2>Shader interface</h2>
-                    <h3>WebGL 1 vertex shader</h3>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">vertex shader</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>attribute vec2 a_position;
+<aside aria-label="Documentation table of contents" class="sidebar">
+<p class="sidebar-title">Documentation</p>
+<nav class="toc"><a href="#overview">System overview</a>
+<a href="#architecture">Rendering architecture</a>
+<a href="#file-contract">Single-file contract</a>
+<a href="#runtime">Runtime lifecycle</a>
+<a href="#shaders">Shader interface</a>
+<a href="#resolution">Resolution and input</a>
+<a href="#diagnostics">Compilation diagnostics</a>
+<a href="#ordinals-runtime">Ordinals runtime</a>
+<a href="#inscription-model">Commit and reveal</a>
+<a href="#limits-fees">Limits and fees</a>
+<a href="#recursion">Recursive content</a>
+<a href="#portability">Portability rules</a>
+<a href="#browser-support">Browser support</a>
+<a href="#inscriptions">Webglo inscriptions</a>
+<a href="#glossary">Glossary</a>
+<a href="#references">Technical references</a></nav>
+</aside>
+<main class="main">
+<details class="mobile-toc">
+<summary>Jump to a section</summary>
+<nav class="toc"><a href="#overview">System overview</a>
+<a href="#architecture">Rendering architecture</a>
+<a href="#file-contract">Single-file contract</a>
+<a href="#runtime">Runtime lifecycle</a>
+<a href="#shaders">Shader interface</a>
+<a href="#resolution">Resolution and input</a>
+<a href="#diagnostics">Compilation diagnostics</a>
+<a href="#ordinals-runtime">Ordinals runtime</a>
+<a href="#inscription-model">Commit and reveal</a>
+<a href="#limits-fees">Limits and fees</a>
+<a href="#recursion">Recursive content</a>
+<a href="#portability">Portability rules</a>
+<a href="#browser-support">Browser support</a>
+<a href="#inscriptions">Webglo inscriptions</a>
+<a href="#glossary">Glossary</a>
+<a href="#references">Technical references</a></nav>
+</details>
+<section class="section" id="overview">
+<span class="step-kicker">Reference</span>
+<h2>System overview</h2>
+<p>
+          Webglo is a browser-rendered video-art project in which each artwork can be represented as
+          an HTML inscription containing native JavaScript and GLSL. The browser provides the WebGL
+          API, the GPU executes the shaders, and the Ordinals content server returns the inscribed
+          HTML as web content.
+        </p>
+<div class="grid-2">
+<div class="mini-card">
+<h3>Runtime layer</h3>
+<p>HTML canvas, native JavaScript, WebGL context, GPU buffers, uniforms, and shaders.</p>
+</div>
+<div class="mini-card">
+<h3>Bitcoin layer</h3>
+<p>On-chain inscription content, commit/reveal transactions, a carrier sat, and an inscription ID.</p>
+</div>
+</div>
+<div class="callout">
+          WebGL is a low-level, cross-platform browser API based on OpenGL ES. WebGL 1 exposes the
+          OpenGL ES 2.0 feature set; WebGL 2 exposes much of OpenGL ES 3.0.
+        </div>
+</section>
+<section class="section" id="architecture">
+<span class="step-kicker">Rendering</span>
+<h2>Rendering architecture</h2>
+<div aria-label="Rendering architecture" class="flow">
+<div class="flow-item">Canvas<br/>element</div>
+<div class="flow-item">WebGLRendering<br/>Context</div>
+<div class="flow-item">Linked<br/>program</div>
+<div class="flow-item">Fullscreen<br/>geometry</div>
+<div class="flow-item">Fragment<br/>output</div>
+</div>
+<h3>Core objects</h3>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Object</th><th>Responsibility</th></tr></thead>
+<tbody>
+<tr><td><code>HTMLCanvasElement</code></td><td>Defines the browser surface and CSS display size.</td></tr>
+<tr><td><code>WebGLRenderingContext</code></td><td>Exposes WebGL 1 state, resources, shader compilation, and draw calls.</td></tr>
+<tr><td><code>WebGLShader</code></td><td>Stores a compiled vertex or fragment shader.</td></tr>
+<tr><td><code>WebGLProgram</code></td><td>Links compatible vertex and fragment stages into an executable GPU program.</td></tr>
+<tr><td><code>WebGLBuffer</code></td><td>Stores fullscreen vertex positions.</td></tr>
+<tr><td><code>WebGLUniformLocation</code></td><td>Addresses per-frame values such as time, resolution, and pointer position.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Why fullscreen triangles</h3>
+<p>
+          The runtime draws two triangles covering clip space from -1 to 1. Every covered pixel
+          invokes the fragment shader, allowing the shader to generate the entire image without
+          textures or scene geometry.
+        </p>
+</section>
+<section class="section" id="file-contract">
+<span class="step-kicker">Packaging</span>
+<h2>Single-file contract</h2>
+<p>
+          A Webglo inscription should remain understandable as one web response with a valid HTML
+          MIME type. The simplest portable form embeds all CSS, JavaScript, vertex GLSL, and fragment
+          GLSL directly in the HTML document.
+        </p>
+<ul class="checklist">
+<li>One HTML document is the entry point.</li>
+<li>No npm bundle or build artifact is required at viewing time.</li>
+<li>No ordinary off-chain resources are required for the core render.</li>
+<li>The canvas has an explicit backing resolution before drawing.</li>
+<li>Shader compile and program link failures are surfaced visibly.</li>
+<li>The page remains functional inside an iframe-based inscription viewer.</li>
+</ul>
+<h3>Recommended MIME type</h3>
+<p><code>text/html;charset=utf-8</code></p>
+</section>
+<section class="section" id="runtime">
+<span class="step-kicker">Lifecycle</span>
+<h2>Runtime lifecycle</h2>
+<ol>
+<li>Resolve the canvas.</li>
+<li>Create the WebGL context and stop with a visible fallback if unavailable.</li>
+<li>Compile the vertex shader.</li>
+<li>Compile the fragment shader.</li>
+<li>Link both shaders into a program.</li>
+<li>Create and upload fullscreen geometry.</li>
+<li>Resolve attribute and uniform locations once.</li>
+<li>On each frame, resize, set the viewport, update uniforms, and draw.</li>
+<li>Handle context loss or recover by reinitializing resources.</li>
+</ol>
+<div class="callout warning">
+          WebGL is stateful. Binding the wrong program or buffer, failing to enable an attribute, or
+          using a stale location can produce a blank frame without a JavaScript exception.
+        </div>
+</section>
+<section class="section" id="shaders">
+<span class="step-kicker">GLSL interface</span>
+<h2>Shader interface</h2>
+<h3>WebGL 1 vertex shader</h3>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">vertex shader</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>attribute vec2 a_position;
 
 void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
 }</code></pre>
-                    </div>
-                    <h3>WebGL 1 fragment shader contract</h3>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">fragment shader interface</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>precision highp float;
+</div>
+<h3>WebGL 1 fragment shader contract</h3>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">fragment shader interface</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>precision highp float;
 
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
@@ -1017,69 +944,42 @@ void main() {
   vec2 uv = gl_FragCoord.xy / u_resolution.xy;
   gl_FragColor = vec4(uv, 0.5 + 0.5 * sin(u_time), 1.0);
 }</code></pre>
-                    </div>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Direction</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>a_position</code></td>
-                                    <td>JavaScript → vertex shader</td>
-                                    <td>Two-component clip-space coordinate.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>u_resolution</code></td>
-                                    <td>JavaScript → fragment shader</td>
-                                    <td>Use backing pixels, not only CSS pixels.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>u_time</code></td>
-                                    <td>JavaScript → fragment shader</td>
-                                    <td>Seconds from <code>requestAnimationFrame</code>.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>u_mouse</code></td>
-                                    <td>JavaScript → fragment shader</td>
-                                    <td>Normalized input; optional for noninteractive work.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>gl_FragCoord</code></td>
-                                    <td>Built-in fragment input</td>
-                                    <td>Current fragment coordinate in window space.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>gl_FragColor</code></td>
-                                    <td>Fragment shader output</td>
-                                    <td>WebGL 1 / GLSL ES 1.00 output variable.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>WebGL 1 versus WebGL 2</h3>
-                    <p>
-                        WebGL 1 shaders commonly use <code>attribute</code>, <code>varying</code>, and
-                        <code>gl_FragColor</code>. WebGL 2 uses GLSL ES 3.00 conventions such as
-                        <code>#version 300 es</code>, <code>in</code>, <code>out</code>, and an explicit fragment output. Do not mix the two syntaxes.
-                    </p>
-                </section>
-                <section class="section" id="resolution">
-                    <span class="step-kicker">Display</span>
-                    <h2>Resolution, aspect ratio, and input</h2>
-                    <p>
-                        CSS controls how large the canvas appears. The <code>width</code> and <code>height</code> properties control the actual backing buffer. A high-DPI display needs a larger backing buffer than its CSS size to avoid blur.
-                    </p>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">responsive backing resolution</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>function resizeCanvasToDisplaySize(canvas) {
+</div>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Name</th><th>Direction</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>a_position</code></td><td>JavaScript → vertex shader</td><td>Two-component clip-space coordinate.</td></tr>
+<tr><td><code>u_resolution</code></td><td>JavaScript → fragment shader</td><td>Use backing pixels, not only CSS pixels.</td></tr>
+<tr><td><code>u_time</code></td><td>JavaScript → fragment shader</td><td>Seconds from <code>requestAnimationFrame</code>.</td></tr>
+<tr><td><code>u_mouse</code></td><td>JavaScript → fragment shader</td><td>Normalized input; optional for noninteractive work.</td></tr>
+<tr><td><code>gl_FragCoord</code></td><td>Built-in fragment input</td><td>Current fragment coordinate in window space.</td></tr>
+<tr><td><code>gl_FragColor</code></td><td>Fragment shader output</td><td>WebGL 1 / GLSL ES 1.00 output variable.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>WebGL 1 versus WebGL 2</h3>
+<p>
+          WebGL 1 shaders commonly use <code>attribute</code>, <code>varying</code>, and
+          <code>gl_FragColor</code>. WebGL 2 uses GLSL ES 3.00 conventions such as
+          <code>#version 300 es</code>, <code>in</code>, <code>out</code>, and an explicit fragment
+          output. Do not mix the two syntaxes.
+        </p>
+</section>
+<section class="section" id="resolution">
+<span class="step-kicker">Display</span>
+<h2>Resolution, aspect ratio, and input</h2>
+<p>
+          CSS controls how large the canvas appears. The <code>width</code> and <code>height</code>
+          properties control the actual backing buffer. A high-DPI display needs a larger backing
+          buffer than its CSS size to avoid blur.
+        </p>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">responsive backing resolution</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>function resizeCanvasToDisplaySize(canvas) {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const width = Math.max(1, Math.round(canvas.clientWidth * dpr));
   const height = Math.max(1, Math.round(canvas.clientHeight * dpr));
@@ -1096,35 +996,37 @@ void main() {
 // Call before drawing:
 resizeCanvasToDisplaySize(canvas);
 gl.viewport(0, 0, canvas.width, canvas.height);</code></pre>
-                    </div>
-                    <h3>Aspect-correct coordinates</h3>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">GLSL</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+</div>
+<h3>Aspect-correct coordinates</h3>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">GLSL</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>vec2 uv = gl_FragCoord.xy / u_resolution.xy;
 vec2 p = uv - 0.5;
 p.x *= u_resolution.x / u_resolution.y;</code></pre>
-                    </div>
-                    <h3>Device-pixel-ratio cap</h3>
-                    <p>
-                        Capping DPR at 2 is a practical performance guard for generative shaders. Removing the cap improves sharpness on very dense displays but can multiply fragment workload.
-                    </p>
-                </section>
-                <section class="section" id="diagnostics">
-                    <span class="step-kicker">Debugging</span>
-                    <h2>Compilation and link diagnostics</h2>
-                    <p>
-                        Shader compiler logs are the primary diagnostic source. Always inspect
-                        <code>COMPILE_STATUS</code> and <code>LINK_STATUS</code>; do not assume a created object is valid.
-                    </p>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">reusable shader compiler</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>function compileShader(gl, type, source) {
+</div>
+<h3>Device-pixel-ratio cap</h3>
+<p>
+          Capping DPR at 2 is a practical performance guard for generative shaders. Removing the cap
+          improves sharpness on very dense displays but can multiply fragment workload.
+        </p>
+</section>
+<section class="section" id="diagnostics">
+<span class="step-kicker">Debugging</span>
+<h2>Compilation and link diagnostics</h2>
+<p>
+          Shader compiler logs are the primary diagnostic source. Always inspect
+          <code>COMPILE_STATUS</code> and <code>LINK_STATUS</code>; do not assume a created object is
+          valid.
+        </p>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">reusable shader compiler</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>function compileShader(gl, type, source) {
   const shader = gl.createShader(type);
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
@@ -1137,419 +1039,256 @@ p.x *= u_resolution.x / u_resolution.y;</code></pre>
 
   return shader;
 }</code></pre>
-                    </div>
-                    <h3>Common compiler failures</h3>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Error class</th>
-                                    <th>Typical cause</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Syntax</td>
-                                    <td>Missing semicolon, unbalanced bracket, malformed numeric literal.</td>
-                                </tr>
-                                <tr>
-                                    <td>Type mismatch</td>
-                                    <td>Combining scalar, vector, or matrix types without a valid conversion.</td>
-                                </tr>
-                                <tr>
-                                    <td>Precision</td>
-                                    <td>No default float precision in a fragment shader.</td>
-                                </tr>
-                                <tr>
-                                    <td>Version mismatch</td>
-                                    <td>Using WebGL 2 GLSL syntax in a WebGL 1 context or the reverse.</td>
-                                </tr>
-                                <tr>
-                                    <td>Link mismatch</td>
-                                    <td>Vertex outputs and fragment inputs disagree in name, type, or precision.</td>
-                                </tr>
-                                <tr>
-                                    <td>Uniform optimized out</td>
-                                    <td>A declared value is unused, producing a null uniform location.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="section" id="ordinals-runtime">
-                    <span class="step-kicker">Execution environment</span>
-                    <h2>Ordinals HTML runtime</h2>
-                    <p>
-                        Ordinals content uses a web-style model: an inscription has a MIME content type and a byte body that can be returned by a content server. HTML and SVG inscriptions are sandboxed in iframes and served with content-security restrictions intended to prevent
-                        ordinary off-chain dependencies.
-                    </p>
-                    <h3>Implications for WebGL work</h3>
-                    <ul>
-                        <li>Inline JavaScript and GLSL are the most portable base.</li>
-                        <li>Remote CDN scripts, web fonts, images, and APIs should not be required.</li>
-                        <li>Audio autoplay and user-input behavior may differ by browser and viewer.</li>
-                        <li>The direct content view is the authoritative rendering test, not only a marketplace card.</li>
-                        <li>Viewer implementations can differ, so graceful fallback behavior matters.</li>
-                    </ul>
-                    <div class="callout">
-                        The inscription content itself is on-chain. A normal web page hosted on GitHub Pages is a separate presentation layer and is not proof that every dependency inside the page is inscribed.
-                    </div>
-                </section>
-                <section class="section" id="inscription-model">
-                    <span class="step-kicker">Bitcoin</span>
-                    <h2>Commit and reveal model</h2>
-                    <p>
-                        Inscriptions use a two-transaction process. The commit creates a Taproot output committing to the script that contains the inscription. The reveal spends that output and publishes the inscription content in the witness.
-                    </p>
-                    <div aria-label="Inscription transaction sequence" class="flow">
-                        <div class="flow-item">Funded<br/>wallet</div>
-                        <div class="flow-item">Commit<br/>transaction</div>
-                        <div class="flow-item">Taproot<br/>output</div>
-                        <div class="flow-item">Reveal<br/>transaction</div>
-                        <div class="flow-item">Indexed<br/>inscription</div>
-                    </div>
-                    <h3>Inscription ID</h3>
-                    <p>
-                        An inscription ID has the form <code>TXIDiN</code>. <code>TXID</code> is the reveal transaction ID and <code>N</code> is the zero-based index of the inscription inside that reveal.
-                    </p>
-                    <h3>Content envelope</h3>
-                    <p>
-                        The content type and body are serialized in an unexecuted Taproot script conditional. Large bodies are split across data pushes because individual pushes are limited to 520 bytes.
-                    </p>
-                </section>
-                <section class="section" id="limits-fees">
-                    <span class="step-kicker">Capacity</span>
-                    <h2>Practical limits and fee model</h2>
-                    <p>
-                        The current <code>ord</code> wallet guide states that inscription transactions must be below 400,000 weight units to be relayed by Bitcoin Core and recommends keeping content below roughly 390,000 bytes to leave room for transaction
-                        overhead.
-                    </p>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Constraint</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bitcoin block weight</td>
-                                    <td>Upper capacity of a block; not a safe target for a standard individual inscription transaction.</td>
-                                </tr>
-                                <tr>
-                                    <td>Standard relay policy</td>
-                                    <td>Determines whether ordinary Bitcoin Core nodes relay the transaction.</td>
-                                </tr>
-                                <tr>
-                                    <td>Tool/service limit</td>
-                                    <td>May be lower or use a specialized workflow; follow the active interface.</td>
-                                </tr>
-                                <tr>
-                                    <td>Browser/GPU limit</td>
-                                    <td>A tiny file can still be too computationally expensive to render smoothly.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Approximate content fee</h3>
-                    <p>
-                        The <code>ord</code> guide gives the approximation:
-                        <code>(content bytes ÷ 4) × fee rate</code>. The total transaction cost is higher because commit/reveal overhead and outputs also consume weight.
-                    </p>
-                    <div class="callout warning">
-                        Fee rates are dynamic. Use current mempool conditions and the exact estimate from the selected inscription workflow immediately before authorizing.
-                    </div>
-                </section>
-                <section class="section" id="recursion">
-                    <span class="step-kicker">On-chain composition</span>
-                    <h2>Recursive content</h2>
-                    <p>
-                        Recursion is the allowed exception to the ordinary inscription sandbox. Whitelisted endpoints can load content and data from other inscriptions, making it possible to share code, textures, audio, stylesheets, or generative assets without copying them
-                        into every child HTML file.
-                    </p>
-                    <div class="code-card">
-                        <div class="code-head">
-                            <span class="code-label">recursive content paths</span>
-                            <button class="copy-button" type="button">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- On an Ordinals-compatible content server --&gt;
+</div>
+<h3>Common compiler failures</h3>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Error class</th><th>Typical cause</th></tr></thead>
+<tbody>
+<tr><td>Syntax</td><td>Missing semicolon, unbalanced bracket, malformed numeric literal.</td></tr>
+<tr><td>Type mismatch</td><td>Combining scalar, vector, or matrix types without a valid conversion.</td></tr>
+<tr><td>Precision</td><td>No default float precision in a fragment shader.</td></tr>
+<tr><td>Version mismatch</td><td>Using WebGL 2 GLSL syntax in a WebGL 1 context or the reverse.</td></tr>
+<tr><td>Link mismatch</td><td>Vertex outputs and fragment inputs disagree in name, type, or precision.</td></tr>
+<tr><td>Uniform optimized out</td><td>A declared value is unused, producing a null uniform location.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section" id="ordinals-runtime">
+<span class="step-kicker">Execution environment</span>
+<h2>Ordinals HTML runtime</h2>
+<p>
+          Ordinals content uses a web-style model: an inscription has a MIME content type and a byte
+          body that can be returned by a content server. HTML and SVG inscriptions are sandboxed in
+          iframes and served with content-security restrictions intended to prevent ordinary
+          off-chain dependencies.
+        </p>
+<h3>Implications for WebGL work</h3>
+<ul>
+<li>Inline JavaScript and GLSL are the most portable base.</li>
+<li>Remote CDN scripts, web fonts, images, and APIs should not be required.</li>
+<li>Audio autoplay and user-input behavior may differ by browser and viewer.</li>
+<li>The direct content view is the authoritative rendering test, not only a marketplace card.</li>
+<li>Viewer implementations can differ, so graceful fallback behavior matters.</li>
+</ul>
+<div class="callout">
+          The inscription content itself is on-chain. A normal web page hosted on GitHub Pages is a
+          separate presentation layer and is not proof that every dependency inside the page is
+          inscribed.
+        </div>
+</section>
+<section class="section" id="inscription-model">
+<span class="step-kicker">Bitcoin</span>
+<h2>Commit and reveal model</h2>
+<p>
+          Inscriptions use a two-transaction process. The commit creates a Taproot output committing
+          to the script that contains the inscription. The reveal spends that output and publishes
+          the inscription content in the witness.
+        </p>
+<div aria-label="Inscription transaction sequence" class="flow">
+<div class="flow-item">Funded<br/>wallet</div>
+<div class="flow-item">Commit<br/>transaction</div>
+<div class="flow-item">Taproot<br/>output</div>
+<div class="flow-item">Reveal<br/>transaction</div>
+<div class="flow-item">Indexed<br/>inscription</div>
+</div>
+<h3>Inscription ID</h3>
+<p>
+          An inscription ID has the form <code>TXIDiN</code>. <code>TXID</code> is the reveal
+          transaction ID and <code>N</code> is the zero-based index of the inscription inside that
+          reveal.
+        </p>
+<h3>Content envelope</h3>
+<p>
+          The content type and body are serialized in an unexecuted Taproot script conditional.
+          Large bodies are split across data pushes because individual pushes are limited to 520
+          bytes.
+        </p>
+</section>
+<section class="section" id="limits-fees">
+<span class="step-kicker">Capacity</span>
+<h2>Practical limits and fee model</h2>
+<p>
+          The current <code>ord</code> wallet guide states that inscription transactions must be
+          below 400,000 weight units to be relayed by Bitcoin Core and recommends keeping content
+          below roughly 390,000 bytes to leave room for transaction overhead.
+        </p>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Constraint</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>Bitcoin block weight</td><td>Upper capacity of a block; not a safe target for a standard individual inscription transaction.</td></tr>
+<tr><td>Standard relay policy</td><td>Determines whether ordinary Bitcoin Core nodes relay the transaction.</td></tr>
+<tr><td>Tool/service limit</td><td>May be lower or use a specialized workflow; follow the active interface.</td></tr>
+<tr><td>Browser/GPU limit</td><td>A tiny file can still be too computationally expensive to render smoothly.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Approximate content fee</h3>
+<p>
+          The <code>ord</code> guide gives the approximation:
+          <code>(content bytes ÷ 4) × fee rate</code>. The total transaction cost is higher because
+          commit/reveal overhead and outputs also consume weight.
+        </p>
+<div class="callout warning">
+          Fee rates are dynamic. Use current mempool conditions and the exact estimate from the
+          selected inscription workflow immediately before authorizing.
+        </div>
+</section>
+<section class="section" id="recursion">
+<span class="step-kicker">On-chain composition</span>
+<h2>Recursive content</h2>
+<p>
+          Recursion is the allowed exception to the ordinary inscription sandbox. Whitelisted
+          endpoints can load content and data from other inscriptions, making it possible to share
+          code, textures, audio, stylesheets, or generative assets without copying them into every
+          child HTML file.
+        </p>
+<div class="code-card">
+<div class="code-head">
+<span class="code-label">recursive content paths</span>
+<button class="copy-button" type="button">Copy</button>
+</div>
+<pre><code>&lt;!-- On an Ordinals-compatible content server --&gt;
 &lt;script src="/content/&lt;INSCRIPTION_ID&gt;"&gt;&lt;/script&gt;
 
 &lt;!-- Or load an on-chain image --&gt;
 &lt;img src="/content/&lt;INSCRIPTION_ID&gt;" alt=""&gt;</code></pre>
-                    </div>
-                    <h3>Use cases</h3>
-                    <ul>
-                        <li>One shared JavaScript or shader library referenced by many artworks.</li>
-                        <li>Texture atlases or visual layers assembled by a smaller HTML inscription.</li>
-                        <li>Generative collections using inscription IDs or chain data as seeds.</li>
-                        <li>Remixes that explicitly depend on previously inscribed media.</li>
-                    </ul>
-                    <div class="callout">
-                        Recursive endpoints carry stronger compatibility guarantees than ordinary server endpoints, but code should tolerate additional JSON fields and avoid depending on object property order.
-                    </div>
-                </section>
-                <section class="section" id="portability">
-                    <span class="step-kicker">Engineering rules</span>
-                    <h2>Portability and resilience</h2>
-                    <ul class="checklist">
-                        <li>Prefer WebGL 1 when the artwork does not require WebGL 2-only features.</li>
-                        <li>Use explicit precision declarations and avoid undefined GLSL behavior.</li>
-                        <li>Compute aspect ratio from the current resolution rather than hard-coded 640×480 values.</li>
-                        <li>Cap device pixel ratio or dynamically reduce quality for expensive shaders.</li>
-                        <li>Keep the render meaningful without pointer input.</li>
-                        <li>Provide a visible WebGL failure message instead of a silent black page.</li>
-                        <li>Handle context loss and recreate GPU resources after restoration.</li>
-                        <li>Do not depend on explorer-specific DOM access or unsandboxed behavior.</li>
-                        <li>Preserve an unminified source version and inscribe only a tested optimized build.</li>
-                    </ul>
-                </section>
-                <section class="section" id="browser-support">
-                    <span class="step-kicker">Compatibility</span>
-                    <h2>Browser and device support</h2>
-                    <p>
-                        WebGL is implemented by modern desktop and mobile browsers, but actual availability still depends on the device GPU, browser settings, driver blocklists, power state, and viewer environment.
-                    </p>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Test</th>
-                                    <th>Minimum recommendation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Desktop browsers</td>
-                                    <td>Current Chrome or Edge plus current Firefox.</td>
-                                </tr>
-                                <tr>
-                                    <td>Safari</td>
-                                    <td>Test separately, especially inscription-service controls and mobile behavior.</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile</td>
-                                    <td>At least one iOS Safari device and one Android Chrome device.</td>
-                                </tr>
-                                <tr>
-                                    <td>Orientation</td>
-                                    <td>Portrait and landscape.</td>
-                                </tr>
-                                <tr>
-                                    <td>DPI</td>
-                                    <td>1× and high-DPI displays.</td>
-                                </tr>
-                                <tr>
-                                    <td>Input</td>
-                                    <td>No pointer, touch pointer, and mouse pointer.</td>
-                                </tr>
-                                <tr>
-                                    <td>Long run</td>
-                                    <td>Several minutes to detect thermal throttling or context loss.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="section" id="inscriptions">
-                    <span class="step-kicker">Project records</span>
-                    <h2>Webglo inscriptions</h2>
-                    <p>
-                        The original Webglo inscription was created on June 12, 2023 at 23:05:38 UTC. Its known record includes inscription number <strong>#11635450</strong>, inscription ID
-                        <code>5518d36079b3cc854dba0bd6497ec078fbaa996ebd53e908150c845d6a56a463i0</code>, and sat number <code>849910637619339</code>.
-                    </p>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Inscription</th>
-                                    <th>Explorer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#11635450</td>
-                                    <td><a href="https://ordinals.com/inscription/11635450" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11637749</td>
-                                    <td><a href="https://ordinals.com/inscription/11637749" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11805310</td>
-                                    <td><a href="https://ordinals.com/inscription/11805310" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875520</td>
-                                    <td><a href="https://ordinals.com/inscription/11875520" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875521</td>
-                                    <td><a href="https://ordinals.com/inscription/11875521" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875522</td>
-                                    <td><a href="https://ordinals.com/inscription/11875522" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875523</td>
-                                    <td><a href="https://ordinals.com/inscription/11875523" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875524</td>
-                                    <td><a href="https://ordinals.com/inscription/11875524" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875525</td>
-                                    <td><a href="https://ordinals.com/inscription/11875525" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#11875526</td>
-                                    <td><a href="https://ordinals.com/inscription/11875526" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077747</td>
-                                    <td><a href="https://ordinals.com/inscription/12077747" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077748</td>
-                                    <td><a href="https://ordinals.com/inscription/12077748" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077749</td>
-                                    <td><a href="https://ordinals.com/inscription/12077749" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077750</td>
-                                    <td><a href="https://ordinals.com/inscription/12077750" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077751</td>
-                                    <td><a href="https://ordinals.com/inscription/12077751" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077752</td>
-                                    <td><a href="https://ordinals.com/inscription/12077752" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077753</td>
-                                    <td><a href="https://ordinals.com/inscription/12077753" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077754</td>
-                                    <td><a href="https://ordinals.com/inscription/12077754" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077755</td>
-                                    <td><a href="https://ordinals.com/inscription/12077755" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12077756</td>
-                                    <td><a href="https://ordinals.com/inscription/12077756" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12102422</td>
-                                    <td><a href="https://ordinals.com/inscription/12102422" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12102423</td>
-                                    <td><a href="https://ordinals.com/inscription/12102423" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12102424</td>
-                                    <td><a href="https://ordinals.com/inscription/12102424" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12102425</td>
-                                    <td><a href="https://ordinals.com/inscription/12102425" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#12102426</td>
-                                    <td><a href="https://ordinals.com/inscription/12102426" rel="noopener noreferrer" target="_blank">Open inscription</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="section" id="glossary">
-                    <span class="step-kicker">Terms</span>
-                    <h2>Glossary</h2>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Term</th>
-                                    <th>Definition</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bitcoin Ordinal</td>
-                                    <td>A sat tracked under ordinal theory; it may carry an inscription.</td>
-                                </tr>
-                                <tr>
-                                    <td>Inscription</td>
-                                    <td>Content associated with a sat through a reveal transaction.</td>
-                                </tr>
-                                <tr>
-                                    <td>Commit transaction</td>
-                                    <td>Creates the Taproot output that commits to the inscription script.</td>
-                                </tr>
-                                <tr>
-                                    <td>Reveal transaction</td>
-                                    <td>Spends the commit output and exposes the inscription content.</td>
-                                </tr>
-                                <tr>
-                                    <td>WebGL</td>
-                                    <td>Browser API for GPU-accelerated graphics based on OpenGL ES.</td>
-                                </tr>
-                                <tr>
-                                    <td>GLSL</td>
-                                    <td>Shader language executed by the graphics pipeline.</td>
-                                </tr>
-                                <tr>
-                                    <td>Vertex shader</td>
-                                    <td>Transforms vertex inputs and produces clip-space positions.</td>
-                                </tr>
-                                <tr>
-                                    <td>Fragment shader</td>
-                                    <td>Computes the output color for covered pixels/fragments.</td>
-                                </tr>
-                                <tr>
-                                    <td>Uniform</td>
-                                    <td>A constant value supplied to a shader for a draw call.</td>
-                                </tr>
-                                <tr>
-                                    <td>Recursion</td>
-                                    <td>Loading whitelisted on-chain content or data from other inscriptions.</td>
-                                </tr>
-                                <tr>
-                                    <td>MIME type</td>
-                                    <td>Content type used to describe how the inscription body should be served.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="section" id="references">
-                    <span class="step-kicker">Primary sources</span>
-                    <h2>Technical references</h2>
-                    <ul>
-                        <li><a href="https://docs.ordinals.com/inscriptions.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Inscriptions</a></li>
-                        <li><a href="https://docs.ordinals.com/guides/wallet.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Wallet and inscription commands</a></li>
-                        <li><a href="https://docs.ordinals.com/inscriptions/recursion.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Recursion</a></li>
-                        <li><a href="https://www.khronos.org/webgl/" rel="noopener noreferrer" target="_blank">Khronos — WebGL standard and resources</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" rel="noopener noreferrer" target="_blank">MDN — WebGL API reference</a></li>
-                        <li><a href="https://github.com/schwwaaa/webglo" rel="noopener noreferrer" target="_blank">Webglo repository</a></li>
-                        <li><a href="https://github.com/schwwaaa/webglo/wiki/002-%E2%80%90-TUTORIAL" rel="noopener noreferrer" target="_blank">Original Webglo wiki tutorial</a></li>
-                        <li><a href="https://schwwaaa.medium.com/inscribing-the-first-webgl-html5-bitcoin-ordinal-a70534af4da1" rel="noopener noreferrer" target="_blank">Original 2023 WebGL Ordinal article</a></li>
-                        <li><a href="https://looksordinal.com/" rel="noopener noreferrer" target="_blank">LooksOrdinal inscription interface</a></li>
-                        <li><a href="https://mempool.space/" rel="noopener noreferrer" target="_blank">mempool.space transaction explorer</a></li>
-                    </ul>
-                </section>
-            </main>
+</div>
+<h3>Use cases</h3>
+<ul>
+<li>One shared JavaScript or shader library referenced by many artworks.</li>
+<li>Texture atlases or visual layers assembled by a smaller HTML inscription.</li>
+<li>Generative collections using inscription IDs or chain data as seeds.</li>
+<li>Remixes that explicitly depend on previously inscribed media.</li>
+</ul>
+<div class="callout">
+          Recursive endpoints carry stronger compatibility guarantees than ordinary server
+          endpoints, but code should tolerate additional JSON fields and avoid depending on object
+          property order.
         </div>
+</section>
+<section class="section" id="portability">
+<span class="step-kicker">Engineering rules</span>
+<h2>Portability and resilience</h2>
+<ul class="checklist">
+<li>Prefer WebGL 1 when the artwork does not require WebGL 2-only features.</li>
+<li>Use explicit precision declarations and avoid undefined GLSL behavior.</li>
+<li>Compute aspect ratio from the current resolution rather than hard-coded 640×480 values.</li>
+<li>Cap device pixel ratio or dynamically reduce quality for expensive shaders.</li>
+<li>Keep the render meaningful without pointer input.</li>
+<li>Provide a visible WebGL failure message instead of a silent black page.</li>
+<li>Handle context loss and recreate GPU resources after restoration.</li>
+<li>Do not depend on explorer-specific DOM access or unsandboxed behavior.</li>
+<li>Preserve an unminified source version and inscribe only a tested optimized build.</li>
+</ul>
+</section>
+<section class="section" id="browser-support">
+<span class="step-kicker">Compatibility</span>
+<h2>Browser and device support</h2>
+<p>
+          WebGL is implemented by modern desktop and mobile browsers, but actual availability still
+          depends on the device GPU, browser settings, driver blocklists, power state, and viewer
+          environment.
+        </p>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Test</th><th>Minimum recommendation</th></tr></thead>
+<tbody>
+<tr><td>Desktop browsers</td><td>Current Chrome or Edge plus current Firefox.</td></tr>
+<tr><td>Safari</td><td>Test separately, especially inscription-service controls and mobile behavior.</td></tr>
+<tr><td>Mobile</td><td>At least one iOS Safari device and one Android Chrome device.</td></tr>
+<tr><td>Orientation</td><td>Portrait and landscape.</td></tr>
+<tr><td>DPI</td><td>1× and high-DPI displays.</td></tr>
+<tr><td>Input</td><td>No pointer, touch pointer, and mouse pointer.</td></tr>
+<tr><td>Long run</td><td>Several minutes to detect thermal throttling or context loss.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section" id="inscriptions">
+<span class="step-kicker">Project records</span>
+<h2>Webglo inscriptions</h2>
+<p>
+          The original Webglo inscription was created on June 12, 2023 at 23:05:38 UTC. Its known
+          record includes inscription number <strong>#11635450</strong>, inscription ID
+          <code>5518d36079b3cc854dba0bd6497ec078fbaa996ebd53e908150c845d6a56a463i0</code>,
+          and sat number <code>849910637619339</code>.
+        </p>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Inscription</th><th>Explorer</th></tr></thead>
+<tbody>
+<tr><td>#11635450</td><td><a href="https://ordinals.com/inscription/11635450" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11637749</td><td><a href="https://ordinals.com/inscription/11637749" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11805310</td><td><a href="https://ordinals.com/inscription/11805310" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875520</td><td><a href="https://ordinals.com/inscription/11875520" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875521</td><td><a href="https://ordinals.com/inscription/11875521" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875522</td><td><a href="https://ordinals.com/inscription/11875522" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875523</td><td><a href="https://ordinals.com/inscription/11875523" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875524</td><td><a href="https://ordinals.com/inscription/11875524" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875525</td><td><a href="https://ordinals.com/inscription/11875525" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#11875526</td><td><a href="https://ordinals.com/inscription/11875526" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077747</td><td><a href="https://ordinals.com/inscription/12077747" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077748</td><td><a href="https://ordinals.com/inscription/12077748" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077749</td><td><a href="https://ordinals.com/inscription/12077749" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077750</td><td><a href="https://ordinals.com/inscription/12077750" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077751</td><td><a href="https://ordinals.com/inscription/12077751" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077752</td><td><a href="https://ordinals.com/inscription/12077752" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077753</td><td><a href="https://ordinals.com/inscription/12077753" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077754</td><td><a href="https://ordinals.com/inscription/12077754" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077755</td><td><a href="https://ordinals.com/inscription/12077755" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12077756</td><td><a href="https://ordinals.com/inscription/12077756" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12102422</td><td><a href="https://ordinals.com/inscription/12102422" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12102423</td><td><a href="https://ordinals.com/inscription/12102423" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12102424</td><td><a href="https://ordinals.com/inscription/12102424" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12102425</td><td><a href="https://ordinals.com/inscription/12102425" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+<tr><td>#12102426</td><td><a href="https://ordinals.com/inscription/12102426" rel="noopener noreferrer" target="_blank">Open inscription</a></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section" id="glossary">
+<span class="step-kicker">Terms</span>
+<h2>Glossary</h2>
+<div class="data-table-wrap">
+<table>
+<thead><tr><th>Term</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td>Bitcoin Ordinal</td><td>A sat tracked under ordinal theory; it may carry an inscription.</td></tr>
+<tr><td>Inscription</td><td>Content associated with a sat through a reveal transaction.</td></tr>
+<tr><td>Commit transaction</td><td>Creates the Taproot output that commits to the inscription script.</td></tr>
+<tr><td>Reveal transaction</td><td>Spends the commit output and exposes the inscription content.</td></tr>
+<tr><td>WebGL</td><td>Browser API for GPU-accelerated graphics based on OpenGL ES.</td></tr>
+<tr><td>GLSL</td><td>Shader language executed by the graphics pipeline.</td></tr>
+<tr><td>Vertex shader</td><td>Transforms vertex inputs and produces clip-space positions.</td></tr>
+<tr><td>Fragment shader</td><td>Computes the output color for covered pixels/fragments.</td></tr>
+<tr><td>Uniform</td><td>A constant value supplied to a shader for a draw call.</td></tr>
+<tr><td>Recursion</td><td>Loading whitelisted on-chain content or data from other inscriptions.</td></tr>
+<tr><td>MIME type</td><td>Content type used to describe how the inscription body should be served.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section" id="references">
+<span class="step-kicker">Primary sources</span>
+<h2>Technical references</h2>
+<ul>
+<li><a href="https://docs.ordinals.com/inscriptions.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Inscriptions</a></li>
+<li><a href="https://docs.ordinals.com/guides/wallet.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Wallet and inscription commands</a></li>
+<li><a href="https://docs.ordinals.com/inscriptions/recursion.html" rel="noopener noreferrer" target="_blank">Ordinal Theory Handbook — Recursion</a></li>
+<li><a href="https://www.khronos.org/webgl/" rel="noopener noreferrer" target="_blank">Khronos — WebGL standard and resources</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" rel="noopener noreferrer" target="_blank">MDN — WebGL API reference</a></li>
+<li><a href="https://github.com/schwwaaa/webglo" rel="noopener noreferrer" target="_blank">Webglo repository</a></li>
+<li><a href="https://github.com/schwwaaa/webglo/wiki/002-%E2%80%90-TUTORIAL" rel="noopener noreferrer" target="_blank">Original Webglo wiki tutorial</a></li>
+<li><a href="https://schwwaaa.medium.com/inscribing-the-first-webgl-html5-bitcoin-ordinal-a70534af4da1" rel="noopener noreferrer" target="_blank">Original 2023 WebGL Ordinal article</a></li>
+<li><a href="https://looksordinal.com/" rel="noopener noreferrer" target="_blank">LooksOrdinal inscription interface</a></li>
+<li><a href="https://mempool.space/" rel="noopener noreferrer" target="_blank">mempool.space transaction explorer</a></li>
+</ul>
+</section>
+</main>
+</div>
     </main>
 
     <footer class="site-footer">
@@ -1564,70 +1303,66 @@ p.x *= u_resolution.x / u_resolution.y;</code></pre>
 
     <script>
         (() => {
-            "use strict";
+          "use strict";
 
-            const progress = document.querySelector(".reading-progress");
-            const sections = [...document.querySelectorAll(".section[id]")];
-            const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+          const progress = document.querySelector(".reading-progress");
+          const sections = [...document.querySelectorAll(".section[id]")];
+          const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
 
-            function updateProgress() {
-                if (!progress) return;
-                const root = document.documentElement;
-                const available = root.scrollHeight - root.clientHeight;
-                const percent = available > 0 ? (root.scrollTop / available) * 100 : 0;
-                progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-            }
+          function updateProgress() {
+            if (!progress) return;
+            const root = document.documentElement;
+            const available = root.scrollHeight - root.clientHeight;
+            const percent = available > 0 ? (root.scrollTop / available) * 100 : 0;
+            progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+          }
 
-            window.addEventListener("scroll", updateProgress, {
-                passive: true
+          window.addEventListener("scroll", updateProgress, { passive: true });
+          updateProgress();
+
+          const observer = new IntersectionObserver((entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+            if (!visible.length) return;
+
+            const id = visible[0].target.id;
+            tocLinks.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
             });
-            updateProgress();
+          }, {
+            rootMargin: "-20% 0px -68% 0px",
+            threshold: [0, 0.1, 0.25]
+          });
 
-            const observer = new IntersectionObserver((entries) => {
-                const visible = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          sections.forEach((section) => observer.observe(section));
 
-                if (!visible.length) return;
+          document.querySelectorAll(".copy-button").forEach((button) => {
+            button.addEventListener("click", async () => {
+              const card = button.closest(".code-card");
+              const code = card?.querySelector("code")?.innerText || "";
 
-                const id = visible[0].target.id;
-                tocLinks.forEach((link) => {
-                    link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-                });
-            }, {
-                rootMargin: "-20% 0px -68% 0px",
-                threshold: [0, 0.1, 0.25]
+              try {
+                await navigator.clipboard.writeText(code);
+                const original = button.textContent;
+                button.textContent = "Copied";
+                setTimeout(() => {
+                  button.textContent = original;
+                }, 1400);
+              } catch {
+                button.textContent = "Select text";
+              }
             });
-
-            sections.forEach((section) => observer.observe(section));
-
-            document.querySelectorAll(".copy-button").forEach((button) => {
-                button.addEventListener("click", async() => {
-                    const card = button.closest(".code-card");
-                    const code = card ? .querySelector("code") ? .innerText || "";
-
-                    try {
-                        await navigator.clipboard.writeText(code);
-                        const original = button.textContent;
-                        button.textContent = "Copied";
-                        setTimeout(() => {
-                            button.textContent = original;
-                        }, 1400);
-                    } catch {
-                        button.textContent = "Select text";
-                    }
-                });
-            });
+          });
         })();
     </script>
-    <!-- Schwwaaa Footer Image Logo Spot -->
-    <footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
-        <a class="schwwaaa-footer-logo" href="https://github.com/schwwaaa" target="_blank" rel="noopener noreferrer">
-            <img class="schwwaaa-footer-image" src="./assets/schwwaaa-footer-logo.png" alt="schwwaaa">
-        </a>
-        <span class="schwwaaa-footer-label">studio mark</span>
-    </footer>
+<!-- Schwwaaa Footer Image Logo Spot -->
+<footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
+    <a class="schwwaaa-footer-logo" href="https://linktr.ee/schwwaaa" target="_blank" rel="noopener noreferrer">
+        <img class="schwwaaa-footer-image" src="./assets/schwwaaa-logo.png" alt="schwwaaa">
+    </a>
+</footer>
 
 </body>
-
 </html>
