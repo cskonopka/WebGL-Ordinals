@@ -49,7 +49,7 @@
         h1 {
             font-family: "Audiowide", sans-serif;
             text-align: center;
-            font-size:75px;
+            font-size: 75px;
             margin-bottom: 20px;
         }
         
@@ -231,19 +231,49 @@
                 flex-direction: row !important;
             }
         }
+        /* Webglo logo additions — compact so the gallery remains visible */
+        
+        .navbar-brand-logo {
+            display: block;
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+        
+        .front-logo {
+            display: block;
+            width: min(300px, 52vw);
+            height: auto;
+            margin: -10px auto 12px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.7));
+        }
+        
+        @media (max-width: 680px) {
+            .navbar-brand-logo {
+                width: 38px;
+                height: 38px;
+            }
+            .front-logo {
+                width: min(230px, 72vw);
+                margin-top: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Fullscreen Background iframe -->
-    <iframe class="background-iframe" src="https://ordinals.com/content/af030674ee65b6bd72e71b92ddb4edbeafbc47768e2e412b7ff2415097447a2ci0" frameborder="0">
+    <iframe class="background-iframe" src="https://ordinals.com/content/5518d36079b3cc854dba0bd6497ec078fbaa996ebd53e908150c845d6a56a463i0" frameborder="0">
     </iframe>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="container-fluid">
             <!-- Site Title -->
-            <!-- <a class="navbar-brand" href="./index.html">webglo</a> -->
+            <a class="navbar-brand" href="./index.html" aria-label="webglo home">
+                <img class="navbar-brand-logo" src="./assets/icon-transparent-1024x1024.png" alt="webglo">
+            </a>
 
             <!-- Toggle Button for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -270,9 +300,10 @@
     <!-- Content Container -->
     <div class="container my-5">
         <!-- <h1>WebGL Ordinals</h1> -->
-        <h1>webglo</h1>
+        <img class="front-logo" src="./assets/webglo-lockup-transparent-1600.png" alt="webglo logo">
+        <!-- <h1>webglo</h1> -->
         <h2>decentralized video art on the Bitcoin blockchain</h2>
-        <h4>created by cskonopka</h4>
+        <!-- <h4>created by cskonopka</h4> -->
         <!-- Footer -->
         <footer>
             <nav>
