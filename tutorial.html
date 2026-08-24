@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    <link rel="icon" href="https://www.youtube.com/s/desktop/1fbbfaed/img/favicon.ico" type="image/x-icon">
+    <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="assets/favicon-32x32.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="assets/favicon-32x32.png" rel="apple-touch-icon" sizes="180x180" />
     <meta name="description" content="This tutorial takes you from an empty folder to a standalone, responsive WebGL artwork,
       then through local testing, file-size checks, inscription, and verification.">
     <title>Webglo Tutorial — Build and Inscribe a WebGL Ordinal</title>
     <style>
         /* Fullscreen Responsive Background Iframe — taken from the uploaded index style */
+        
         .background-iframe {
             position: fixed;
             top: 0;
@@ -27,7 +31,7 @@
             object-position: center;
             border: 0;
         }
-
+        
         body {
             margin: 0;
             overflow-y: auto;
@@ -38,7 +42,7 @@
             min-height: 100vh;
             font-family: "Audiowide", sans-serif;
         }
-
+        
         body::before {
             content: "";
             position: fixed;
@@ -47,16 +51,16 @@
             pointer-events: none;
             background: rgba(0, 0, 0, 0.22);
         }
-
+        
         a {
             color: white;
             text-underline-offset: 0.2em;
         }
-
+        
         a:hover {
             color: #0d6efd;
         }
-
+        
         h1 {
             font-family: "Audiowide", sans-serif;
             text-align: center;
@@ -64,7 +68,7 @@
             margin-bottom: 40px;
             line-height: 1.12;
         }
-
+        
         h2 {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -72,20 +76,20 @@
             margin-bottom: 5px;
             margin-top: 25px;
         }
-
+        
         h3 {
             font-family: "Audiowide", sans-serif;
             text-align: left;
             margin-left: 130px;
             margin-top: 25px;
         }
-
+        
         h4 {
             font-family: "Audiowide", sans-serif;
             margin-left: 130px;
             margin-top: 20px;
         }
-
+        
         p {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -94,7 +98,7 @@
             margin-bottom: 20px;
             line-height: 1.75;
         }
-
+        
         li {
             font-family: "Audiowide", sans-serif;
             text-align: left;
@@ -106,61 +110,61 @@
             line-height: 1.7;
             margin-bottom: 7px;
         }
-
+        
         nav {
             font-family: "Audiowide", sans-serif;
             margin-bottom: 10px;
         }
-
+        
         .navbar {
             justify-content: space-between;
         }
-
+        
         .navbar-nav .nav-link {
             color: white;
             font-size: 1.2rem;
             transition: color 0.3s ease;
         }
-
+        
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: #0d6efd;
         }
-
+        
         .navbar.bg-transparent {
             background-color: transparent !important;
         }
-
+        
         .navbar-toggler {
             border-color: rgba(255, 255, 255, 0.7);
         }
-
+        
         .content-wrap {
             width: min(1320px, calc(100% - 28px));
             margin: 0 auto;
         }
-
+        
         .container.my-5 {
             margin-top: 3rem !important;
         }
-
+        
         .page-title {
             max-width: 1180px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 0 18px rgba(0,0,0,0.65);
+            text-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
         }
-
+        
         .hero-note,
         .page-note {
             text-align: center;
             max-width: 980px;
             margin-left: auto;
             margin-right: auto;
-            color: rgba(255,255,255,0.86);
-            text-shadow: 0 0 16px rgba(0,0,0,0.74);
+            color: rgba(255, 255, 255, 0.86);
+            text-shadow: 0 0 16px rgba(0, 0, 0, 0.74);
         }
-
+        
         .hero-meta {
             display: flex;
             flex-wrap: wrap;
@@ -169,47 +173,47 @@
             margin: 0 auto 32px;
             padding: 0 12px;
         }
-
+        
         .chip {
             display: inline-flex;
             align-items: center;
             min-height: 32px;
             padding: 6px 10px;
-            border: 1px solid rgba(255,255,255,0.24);
+            border: 1px solid rgba(255, 255, 255, 0.24);
             border-radius: 999px;
-            background: rgba(0,0,0,0.22);
+            background: rgba(0, 0, 0, 0.22);
             backdrop-filter: blur(8px);
             font-size: 0.72rem;
         }
-
+        
         footer {
             padding: 15px 0;
             text-align: center;
             margin-top: auto;
             width: 100%;
         }
-
+        
         footer .nav-link {
             color: white;
             font-size: 1.1rem;
             margin: 0 10px;
             transition: color 0.3s ease;
         }
-
+        
         footer .nav-link:hover {
             color: #0d6efd;
         }
-
+        
         footer .custom-text {
             color: white;
             font-size: 1.1rem;
         }
-
+        
         footer .custom-text i {
             font-size: 20px;
             margin-right: 15px;
         }
-
+        
         .grid-item img,
         .example-card img {
             width: 100%;
@@ -219,25 +223,25 @@
             transition: transform 0.2s ease-in-out;
             display: block;
         }
-
+        
         .grid-item img:hover,
         .example-card img:hover {
             transform: scale(1.05);
         }
-
+        
         .grid-item a,
         .example-card {
             display: block;
             color: white;
             text-decoration: none;
         }
-
+        
         .example-card {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
         }
-
+        
         .example-card::after {
             content: attr(data-label);
             position: absolute;
@@ -246,18 +250,18 @@
             bottom: 8px;
             padding: 6px 8px;
             border-radius: 999px;
-            background: rgba(0,0,0,0.58);
+            background: rgba(0, 0, 0, 0.58);
             color: white;
             font-size: 0.62rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
+        
         .container22 {
             padding-bottom: 32px;
         }
-
+        
         .page-panel,
         .section,
         .sidebar,
@@ -270,23 +274,23 @@
         .tech-pill,
         .gallery-empty {
             background: rgba(0, 0, 0, 0.24);
-            border: 1px solid rgba(255,255,255,0.14);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             border-radius: 10px;
             backdrop-filter: blur(8px);
         }
-
+        
         .page-panel {
             padding: 24px 0 30px;
             margin-bottom: 30px;
         }
-
+        
         .page-layout {
             display: grid;
             grid-template-columns: 260px minmax(0, 1fr);
             gap: 24px;
             align-items: start;
         }
-
+        
         .sidebar {
             position: sticky;
             top: 86px;
@@ -294,113 +298,113 @@
             max-height: calc(100vh - 110px);
             overflow: auto;
         }
-
+        
         .sidebar-title {
             margin: 0 0 10px;
             font-size: 0.85rem;
             color: white;
         }
-
+        
         .toc {
             display: grid;
             gap: 4px;
         }
-
+        
         .toc a {
             display: block;
             padding: 7px 8px;
             border-radius: 8px;
-            color: rgba(255,255,255,0.78);
+            color: rgba(255, 255, 255, 0.78);
             text-decoration: none;
             font-size: 0.72rem;
             line-height: 1.35;
         }
-
+        
         .toc a:hover,
         .toc a.active {
             color: #0d6efd;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
         }
-
+        
         .main {
             min-width: 0;
         }
-
+        
         .mobile-toc {
             display: none;
             margin-bottom: 18px;
         }
-
+        
         .mobile-toc summary {
             cursor: pointer;
             padding: 12px 14px;
         }
-
+        
         .mobile-toc .toc {
             padding: 0 10px 12px;
         }
-
+        
         .section {
             padding: 24px 0;
             margin-bottom: 18px;
             scroll-margin-top: 92px;
         }
-
+        
         .section h2 {
             margin-top: 0;
         }
-
+        
         .step-kicker,
         .eyebrow,
         .kicker {
             display: block;
-            color: rgba(255,255,255,0.76);
+            color: rgba(255, 255, 255, 0.76);
             margin-left: 130px;
             margin-bottom: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             font-size: 0.72rem;
         }
-
+        
         .callout {
             margin: 18px 130px 22px;
             padding: 14px 16px;
-            color: rgba(255,255,255,0.86);
+            color: rgba(255, 255, 255, 0.86);
         }
-
+        
         .callout strong {
             color: white;
         }
-
+        
         .code-card {
             margin: 18px 130px 24px;
             overflow: hidden;
         }
-
+        
         .code-head {
             display: flex;
             justify-content: space-between;
             gap: 12px;
             align-items: center;
             padding: 9px 11px 9px 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
-
+        
         .code-label {
-            color: rgba(255,255,255,0.78);
+            color: rgba(255, 255, 255, 0.78);
             font-size: 0.72rem;
         }
-
+        
         .copy-button {
             color: white;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 7px;
             padding: 6px 9px;
             font-family: "Audiowide", sans-serif;
             font-size: 0.68rem;
         }
-
+        
         pre {
             margin: 0;
             padding: 16px;
@@ -409,20 +413,20 @@
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
             font-size: 0.78rem;
             line-height: 1.58;
-            background: rgba(0,0,0,0.30);
+            background: rgba(0, 0, 0, 0.30);
         }
-
+        
         code {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
         }
-
-        :not(pre) > code {
+        
+         :not(pre)>code {
             padding: 0.12em 0.32em;
             border-radius: 5px;
-            background: rgba(0,0,0,0.30);
+            background: rgba(0, 0, 0, 0.30);
             color: white;
         }
-
+        
         .grid-2,
         .tech-band {
             display: grid;
@@ -430,59 +434,60 @@
             gap: 12px;
             margin: 18px 130px;
         }
-
+        
         .mini-card,
         .tech-pill {
             padding: 14px;
         }
-
+        
         .mini-card h3,
         .tech-pill strong {
             margin-left: 0;
             margin-top: 0;
             display: block;
         }
-
+        
         .mini-card p,
         .mini-card li,
         .tech-pill span {
             margin-left: 0;
             margin-right: 0;
         }
-
+        
         .data-table-wrap {
             overflow-x: auto;
             margin: 18px 130px 24px;
         }
-
+        
         table {
             width: 100%;
             min-width: 640px;
             border-collapse: collapse;
-            background: rgba(0,0,0,0.20);
+            background: rgba(0, 0, 0, 0.20);
         }
-
-        th, td {
+        
+        th,
+        td {
             padding: 12px 13px;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.86);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.86);
             vertical-align: top;
             font-size: 0.78rem;
             line-height: 1.55;
         }
-
+        
         th {
             color: white;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
         }
-
+        
         .flow {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 8px;
             margin: 18px 130px;
         }
-
+        
         .flow-item {
             min-height: 78px;
             display: grid;
@@ -491,19 +496,19 @@
             padding: 10px;
             font-size: 0.72rem;
         }
-
+        
         .checklist {
             list-style: none;
             padding-left: 0;
         }
-
+        
         .checklist li {
-            border-left: 2px solid rgba(13,110,253,0.72);
-            background: rgba(0,0,0,0.18);
+            border-left: 2px solid rgba(13, 110, 253, 0.72);
+            background: rgba(0, 0, 0, 0.18);
             border-radius: 0 8px 8px 0;
             padding: 8px 10px;
         }
-
+        
         .reading-progress {
             position: fixed;
             top: 0;
@@ -513,58 +518,121 @@
             background: #0d6efd;
             z-index: 1000;
         }
-
+        
         .site-footer {
             width: min(1320px, calc(100% - 28px));
             margin: 30px auto 40px;
             padding-top: 18px;
-            border-top: 1px solid rgba(255,255,255,0.16);
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
             display: flex;
             justify-content: space-between;
             gap: 18px;
-            color: rgba(255,255,255,0.78);
+            color: rgba(255, 255, 255, 0.78);
             font-size: 0.75rem;
         }
-
+        
         .footer-links {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-
+        
         @media (max-width: 992px) {
-            h2 { margin-left: 40px; }
-            h3, h4, p, li, .step-kicker, .eyebrow, .kicker { margin-left: 50px; margin-right: 50px; }
-            .callout, .code-card, .data-table-wrap, .flow, .grid-2, .tech-band { margin-left: 50px; margin-right: 50px; }
-            .page-layout { grid-template-columns: 1fr; }
-            .sidebar { display: none; }
-            .mobile-toc { display: block; }
-            .flow { grid-template-columns: 1fr; }
+            h2 {
+                margin-left: 40px;
+            }
+            h3,
+            h4,
+            p,
+            li,
+            .step-kicker,
+            .eyebrow,
+            .kicker {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .callout,
+            .code-card,
+            .data-table-wrap,
+            .flow,
+            .grid-2,
+            .tech-band {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+            .mobile-toc {
+                display: block;
+            }
+            .flow {
+                grid-template-columns: 1fr;
+            }
         }
-
+        
         @media (max-width: 680px) {
-            .container.my-5 { margin-top: 2rem !important; }
-            h1 { margin-top: 0; font-size: clamp(1.55rem, 8vw, 2.5rem); }
-            h2 { margin-left: 0; font-size: 1.25rem; }
-            h3, h4, p, li, .step-kicker, .eyebrow, .kicker { margin-left: 0; margin-right: 0; }
-            .callout, .code-card, .data-table-wrap, .flow, .grid-2, .tech-band { margin-left: 0; margin-right: 0; }
-            .page-panel, .section { padding: 18px 14px; }
-            .grid-2, .tech-band { grid-template-columns: 1fr; }
-            .site-footer { flex-direction: column; }
-            pre { font-size: 0.68rem; }
+            .container.my-5 {
+                margin-top: 2rem !important;
+            }
+            h1 {
+                margin-top: 0;
+                font-size: clamp(1.55rem, 8vw, 2.5rem);
+            }
+            h2 {
+                margin-left: 0;
+                font-size: 1.25rem;
+            }
+            h3,
+            h4,
+            p,
+            li,
+            .step-kicker,
+            .eyebrow,
+            .kicker {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .callout,
+            .code-card,
+            .data-table-wrap,
+            .flow,
+            .grid-2,
+            .tech-band {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .page-panel,
+            .section {
+                padding: 18px 14px;
+            }
+            .grid-2,
+            .tech-band {
+                grid-template-columns: 1fr;
+            }
+            .site-footer {
+                flex-direction: column;
+            }
+            pre {
+                font-size: 0.68rem;
+            }
         }
-
+        
         @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
+            html {
+                scroll-behavior: auto;
+            }
             .grid-item img,
             .example-card img {
                 transition: none;
             }
         }
-
-    
         /* Global header lock: keeps nav height/baseline identical on every page. */
-        body > nav.navbar {
+        
+        body>nav.navbar {
             margin: 0 0 10px 0 !important;
             padding: 0.5rem 0 !important;
             min-height: 56px !important;
@@ -573,16 +641,16 @@
             font-family: "Audiowide", sans-serif !important;
             line-height: 1.5 !important;
         }
-
-        body > nav.navbar .container-fluid {
+        
+        body>nav.navbar .container-fluid {
             min-height: 40px !important;
             display: flex !important;
             align-items: center !important;
             padding-left: 0.75rem !important;
             padding-right: 0.75rem !important;
         }
-
-        body > nav.navbar .navbar-brand {
+        
+        body>nav.navbar .navbar-brand {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -594,20 +662,20 @@
             font-family: "Audiowide", sans-serif !important;
             color: white !important;
         }
-
-        body > nav.navbar .navbar-collapse {
+        
+        body>nav.navbar .navbar-collapse {
             align-items: center !important;
         }
-
-        body > nav.navbar .navbar-nav {
+        
+        body>nav.navbar .navbar-nav {
             display: flex !important;
             align-items: center !important;
             margin: 0 0 0 auto !important;
             padding: 0 !important;
             list-style: none !important;
         }
-
-        body > nav.navbar .navbar-nav .nav-item {
+        
+        body>nav.navbar .navbar-nav .nav-item {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -618,8 +686,8 @@
             max-width: none !important;
             width: auto !important;
         }
-
-        body > nav.navbar .navbar-nav .nav-link {
+        
+        body>nav.navbar .navbar-nav .nav-link {
             display: flex !important;
             align-items: center !important;
             margin: 0 !important;
@@ -631,37 +699,35 @@
             text-align: left !important;
             transform: none !important;
         }
-
-        body > nav.navbar .navbar-nav .nav-link:hover {
+        
+        body>nav.navbar .navbar-nav .nav-link:hover {
             color: #0d6efd !important;
         }
-
-        body > nav.navbar .navbar-toggler {
+        
+        body>nav.navbar .navbar-toggler {
             margin: 0 !important;
             padding: 0.25rem 0.75rem !important;
             line-height: 1 !important;
         }
-
+        
         @media (min-width: 992px) {
-            body > nav.navbar.navbar-expand-lg .navbar-collapse {
+            body>nav.navbar.navbar-expand-lg .navbar-collapse {
                 display: flex !important;
                 flex-basis: auto !important;
             }
-
-            body > nav.navbar.navbar-expand-lg .navbar-nav {
+            body>nav.navbar.navbar-expand-lg .navbar-nav {
                 flex-direction: row !important;
             }
         }
-
-    
         /* Webglo nav icon + Schwwaaa footer image */
+        
         .navbar-brand-logo {
             display: block;
             width: 44px;
             height: 44px;
             object-fit: contain;
         }
-
+        
         .schwwaaa-footer {
             position: relative;
             z-index: 1;
@@ -670,62 +736,57 @@
             text-align: center;
             font-family: "Audiowide", sans-serif;
         }
-
+        
         .schwwaaa-footer-logo {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
         }
-
+        
         .schwwaaa-footer-image {
             display: block;
             width: min(168px, 44vw);
             height: auto;
             object-fit: contain;
             opacity: 0.9;
-            filter: drop-shadow(0 0 12px rgba(255,255,255,0.22))
-                    drop-shadow(0 0 22px rgba(13,110,253,0.18));
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.22)) drop-shadow(0 0 22px rgba(13, 110, 253, 0.18));
             transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
         }
-
+        
         .schwwaaa-footer-logo:hover .schwwaaa-footer-image {
             opacity: 1;
             transform: translateY(-1px);
-            filter: drop-shadow(0 0 14px rgba(255,255,255,0.35))
-                    drop-shadow(0 0 28px rgba(13,110,253,0.32));
+            filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 28px rgba(13, 110, 253, 0.32));
         }
-
+        
         .schwwaaa-footer-label {
             display: block;
             margin-top: 8px;
-            color: rgba(255,255,255,0.54);
+            color: rgba(255, 255, 255, 0.54);
             font-size: 0.58rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
-
+        
         @media (max-width: 575.98px) {
             .navbar-brand-logo {
                 width: 38px;
                 height: 38px;
             }
-
             .schwwaaa-footer {
                 padding: 22px 0 30px;
             }
-
             .schwwaaa-footer-image {
                 width: min(138px, 50vw);
             }
-
             .schwwaaa-footer-label {
                 font-size: 0.52rem;
             }
         }
-
-</style>
+    </style>
 </head>
+
 <body>
     <div class="reading-progress" aria-hidden="true"></div>
     <iframe class="background-iframe" src="https://ordinals.com/content/af030674ee65b6bd72e71b92ddb4edbeafbc47768e2e412b7ff2415097447a2ci0" frameborder="0" title="webglo background inscription" aria-hidden="true" tabindex="-1"></iframe>
@@ -761,8 +822,7 @@
     <div class="container my-5">
         <!-- <p class="hero-note">single-file workflow / WebGL 1 / HTML inscription</p> -->
         <h1 class="page-title">Build and inscribe a WebGL Ordinal.</h1>
-        <p class="hero-note">This tutorial takes you from an empty folder to a standalone, responsive WebGL artwork,
-      then through local testing, file-size checks, inscription, and verification.</p>
+        <p class="hero-note">This tutorial takes you from an empty folder to a standalone, responsive WebGL artwork, then through local testing, file-size checks, inscription, and verification.</p>
         <div class="hero-meta"><span class="chip">one index.html</span><span class="chip">no runtime libraries</span><span class="chip">responsive canvas</span><span class="chip">copy-ready code</span></div>
         <footer>
             <nav>
@@ -781,123 +841,115 @@
 
     <main class="content-wrap">
         <div class="page-layout">
-<aside aria-label="Tutorial table of contents" class="sidebar">
-<p class="sidebar-title">Tutorial</p>
-<nav class="toc"><a href="#overview">What you will build</a>
-<a href="#prerequisites">Prerequisites</a>
-<a href="#anatomy">File anatomy</a>
-<a href="#create-file">1. Create the HTML file</a>
-<a href="#replace-shader">2. Replace the shader</a>
-<a href="#test-local">3. Test locally</a>
-<a href="#preflight">4. Preflight the inscription</a>
-<a href="#file-size">5. Check size and fees</a>
-<a href="#inscribe-service">6. Inscribe with LooksOrdinal</a>
-<a href="#inscribe-cli">7. Optional ord CLI path</a>
-<a href="#verify">8. Verify the result</a>
-<a href="#troubleshooting">Troubleshooting</a>
-<a href="#final-checklist">Final checklist</a></nav>
-</aside>
-<main class="main">
-<details class="mobile-toc">
-<summary>Jump to a section</summary>
-<nav class="toc"><a href="#overview">What you will build</a>
-<a href="#prerequisites">Prerequisites</a>
-<a href="#anatomy">File anatomy</a>
-<a href="#create-file">1. Create the HTML file</a>
-<a href="#replace-shader">2. Replace the shader</a>
-<a href="#test-local">3. Test locally</a>
-<a href="#preflight">4. Preflight the inscription</a>
-<a href="#file-size">5. Check size and fees</a>
-<a href="#inscribe-service">6. Inscribe with LooksOrdinal</a>
-<a href="#inscribe-cli">7. Optional ord CLI path</a>
-<a href="#verify">8. Verify the result</a>
-<a href="#troubleshooting">Troubleshooting</a>
-<a href="#final-checklist">Final checklist</a></nav>
-</details>
-<section class="section" id="overview">
-<span class="step-kicker">Outcome</span>
-<h2>What you will build</h2>
-<p>
-          The finished artifact is a single <code>index.html</code> file containing the canvas,
-          JavaScript WebGL runtime, vertex shader, and fragment shader. The file renders directly
-          in a browser and does not need Three.js, npm, a build system, or a web server.
-        </p>
-<div aria-label="Tutorial workflow" class="flow">
-<div class="flow-item">Create<br/>index.html</div>
-<div class="flow-item">Compile<br/>GLSL shaders</div>
-<div class="flow-item">Test in<br/>browser</div>
-<div class="flow-item">Optimize<br/>and inspect</div>
-<div class="flow-item">Inscribe<br/>and verify</div>
-</div>
-<div class="callout danger">
-<strong>Bitcoin transactions are irreversible.</strong>
-          Test the final file, receiving address, fee rate, and wallet workflow before authorizing
-          an inscription. This page explains the process; it does not custody funds or guarantee a
-          third-party service.
-        </div>
-</section>
-<section class="section" id="prerequisites">
-<span class="step-kicker">Before starting</span>
-<h2>Prerequisites</h2>
-<div class="grid-2">
-<div class="mini-card">
-<h3>Software</h3>
-<ul>
-<li>A plain-text editor such as VS Code, Zed, Sublime Text, or Notepad++.</li>
-<li>A current Chrome, Firefox, Edge, or Safari browser with WebGL enabled.</li>
-<li>Developer Tools access for reading shader and JavaScript errors.</li>
-</ul>
-</div>
-<div class="mini-card">
-<h3>Bitcoin</h3>
-<ul>
-<li>An Ordinals-aware wallet or a configured <code>ord</code> wallet.</li>
-<li>A fresh receiving address intended for the inscription.</li>
-<li>Enough BTC to cover the inscription service cost and network fees.</li>
-</ul>
-</div>
-</div>
-<div class="callout warning">
-<strong>Do not use an exchange deposit address.</strong>
-          Use a wallet and receiving address that can safely manage Ordinal inscriptions and the
-          sat carrying the inscription.
-        </div>
-</section>
-<section class="section" id="anatomy">
-<span class="step-kicker">Concept</span>
-<h2>How the one-file artwork works</h2>
-<p>
-          JavaScript creates a WebGL context from the canvas, compiles one vertex shader and one
-          fragment shader, links them into a GPU program, draws two triangles covering the screen,
-          and updates uniforms every animation frame.
-        </p>
-<div aria-label="WebGL rendering path" class="flow">
-<div class="flow-item">HTML<br/>canvas</div>
-<div class="flow-item">WebGL<br/>context</div>
-<div class="flow-item">Vertex<br/>shader</div>
-<div class="flow-item">Fragment<br/>shader</div>
-<div class="flow-item">Screen<br/>pixels</div>
-</div>
-<p>
-          The vertex shader only places a fullscreen rectangle. The fragment shader does the
-          visible work by calculating a color independently for each pixel.
-        </p>
-</section>
-<section class="section" id="create-file">
-<span class="step-kicker">Step 1</span>
-<h2>Create the standalone HTML file</h2>
-<ol>
-<li>Create a new folder for the artwork.</li>
-<li>Create a file named <code>index.html</code>.</li>
-<li>Paste the complete template below.</li>
-<li>Save the file before opening it in a browser.</li>
-</ol>
-<div class="code-card">
-<div class="code-head">
-<span class="code-label">index.html — complete responsive starter</span>
-<button class="copy-button" type="button">Copy</button>
-</div>
-<pre><code>&lt;!doctype html&gt;
+            <aside aria-label="Tutorial table of contents" class="sidebar">
+                <p class="sidebar-title">Tutorial</p>
+                <nav class="toc"><a href="#overview">What you will build</a>
+                    <a href="#prerequisites">Prerequisites</a>
+                    <a href="#anatomy">File anatomy</a>
+                    <a href="#create-file">1. Create the HTML file</a>
+                    <a href="#replace-shader">2. Replace the shader</a>
+                    <a href="#test-local">3. Test locally</a>
+                    <a href="#preflight">4. Preflight the inscription</a>
+                    <a href="#file-size">5. Check size and fees</a>
+                    <a href="#inscribe-service">6. Inscribe with LooksOrdinal</a>
+                    <a href="#inscribe-cli">7. Optional ord CLI path</a>
+                    <a href="#verify">8. Verify the result</a>
+                    <a href="#troubleshooting">Troubleshooting</a>
+                    <a href="#final-checklist">Final checklist</a></nav>
+            </aside>
+            <main class="main">
+                <details class="mobile-toc">
+                    <summary>Jump to a section</summary>
+                    <nav class="toc"><a href="#overview">What you will build</a>
+                        <a href="#prerequisites">Prerequisites</a>
+                        <a href="#anatomy">File anatomy</a>
+                        <a href="#create-file">1. Create the HTML file</a>
+                        <a href="#replace-shader">2. Replace the shader</a>
+                        <a href="#test-local">3. Test locally</a>
+                        <a href="#preflight">4. Preflight the inscription</a>
+                        <a href="#file-size">5. Check size and fees</a>
+                        <a href="#inscribe-service">6. Inscribe with LooksOrdinal</a>
+                        <a href="#inscribe-cli">7. Optional ord CLI path</a>
+                        <a href="#verify">8. Verify the result</a>
+                        <a href="#troubleshooting">Troubleshooting</a>
+                        <a href="#final-checklist">Final checklist</a></nav>
+                </details>
+                <section class="section" id="overview">
+                    <span class="step-kicker">Outcome</span>
+                    <h2>What you will build</h2>
+                    <p>
+                        The finished artifact is a single <code>index.html</code> file containing the canvas, JavaScript WebGL runtime, vertex shader, and fragment shader. The file renders directly in a browser and does not need Three.js, npm, a build
+                        system, or a web server.
+                    </p>
+                    <div aria-label="Tutorial workflow" class="flow">
+                        <div class="flow-item">Create<br/>index.html</div>
+                        <div class="flow-item">Compile<br/>GLSL shaders</div>
+                        <div class="flow-item">Test in<br/>browser</div>
+                        <div class="flow-item">Optimize<br/>and inspect</div>
+                        <div class="flow-item">Inscribe<br/>and verify</div>
+                    </div>
+                    <div class="callout danger">
+                        <strong>Bitcoin transactions are irreversible.</strong> Test the final file, receiving address, fee rate, and wallet workflow before authorizing an inscription. This page explains the process; it does not custody funds or guarantee
+                        a third-party service.
+                    </div>
+                </section>
+                <section class="section" id="prerequisites">
+                    <span class="step-kicker">Before starting</span>
+                    <h2>Prerequisites</h2>
+                    <div class="grid-2">
+                        <div class="mini-card">
+                            <h3>Software</h3>
+                            <ul>
+                                <li>A plain-text editor such as VS Code, Zed, Sublime Text, or Notepad++.</li>
+                                <li>A current Chrome, Firefox, Edge, or Safari browser with WebGL enabled.</li>
+                                <li>Developer Tools access for reading shader and JavaScript errors.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card">
+                            <h3>Bitcoin</h3>
+                            <ul>
+                                <li>An Ordinals-aware wallet or a configured <code>ord</code> wallet.</li>
+                                <li>A fresh receiving address intended for the inscription.</li>
+                                <li>Enough BTC to cover the inscription service cost and network fees.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="callout warning">
+                        <strong>Do not use an exchange deposit address.</strong> Use a wallet and receiving address that can safely manage Ordinal inscriptions and the sat carrying the inscription.
+                    </div>
+                </section>
+                <section class="section" id="anatomy">
+                    <span class="step-kicker">Concept</span>
+                    <h2>How the one-file artwork works</h2>
+                    <p>
+                        JavaScript creates a WebGL context from the canvas, compiles one vertex shader and one fragment shader, links them into a GPU program, draws two triangles covering the screen, and updates uniforms every animation frame.
+                    </p>
+                    <div aria-label="WebGL rendering path" class="flow">
+                        <div class="flow-item">HTML<br/>canvas</div>
+                        <div class="flow-item">WebGL<br/>context</div>
+                        <div class="flow-item">Vertex<br/>shader</div>
+                        <div class="flow-item">Fragment<br/>shader</div>
+                        <div class="flow-item">Screen<br/>pixels</div>
+                    </div>
+                    <p>
+                        The vertex shader only places a fullscreen rectangle. The fragment shader does the visible work by calculating a color independently for each pixel.
+                    </p>
+                </section>
+                <section class="section" id="create-file">
+                    <span class="step-kicker">Step 1</span>
+                    <h2>Create the standalone HTML file</h2>
+                    <ol>
+                        <li>Create a new folder for the artwork.</li>
+                        <li>Create a file named <code>index.html</code>.</li>
+                        <li>Paste the complete template below.</li>
+                        <li>Save the file before opening it in a browser.</li>
+                    </ol>
+                    <div class="code-card">
+                        <div class="code-head">
+                            <span class="code-label">index.html — complete responsive starter</span>
+                            <button class="copy-button" type="button">Copy</button>
+                        </div>
+                        <pre><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
@@ -1113,27 +1165,25 @@
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-</div>
-<div class="callout success">
-<strong>This version fixes several limitations of the older template:</strong>
-          it uses correct shader error reporting, responsive backing resolution, device-pixel-ratio
-          handling, a full-screen triangle pair, time and mouse uniforms, and context-loss handling.
-        </div>
-</section>
-<section class="section" id="replace-shader">
-<span class="step-kicker">Step 2</span>
-<h2>Replace the fragment shader with your artwork</h2>
-<p>
-          In the template, locate <code>const fragmentSource = `...`;</code>. Replace only the GLSL
-          inside that template literal. Keep the uniform names aligned with the JavaScript runtime
-          unless you also update the corresponding JavaScript locations.
-        </p>
-<div class="code-card">
-<div class="code-head">
-<span class="code-label">fragment shader — minimal compatible example</span>
-<button class="copy-button" type="button">Copy</button>
-</div>
-<pre><code>precision highp float;
+                    </div>
+                    <div class="callout success">
+                        <strong>This version fixes several limitations of the older template:</strong> it uses correct shader error reporting, responsive backing resolution, device-pixel-ratio handling, a full-screen triangle pair, time and mouse uniforms,
+                        and context-loss handling.
+                    </div>
+                </section>
+                <section class="section" id="replace-shader">
+                    <span class="step-kicker">Step 2</span>
+                    <h2>Replace the fragment shader with your artwork</h2>
+                    <p>
+                        In the template, locate <code>const fragmentSource = `...`;</code>. Replace only the GLSL inside that template literal. Keep the uniform names aligned with the JavaScript runtime unless you also update the corresponding JavaScript
+                        locations.
+                    </p>
+                    <div class="code-card">
+                        <div class="code-head">
+                            <span class="code-label">fragment shader — minimal compatible example</span>
+                            <button class="copy-button" type="button">Copy</button>
+                        </div>
+                        <pre><code>precision highp float;
 
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
@@ -1164,159 +1214,158 @@ void main() {
 
   gl_FragColor = vec4(color, 1.0);
 }</code></pre>
-</div>
-<h3>The three uniforms</h3>
-<div class="data-table-wrap">
-<table>
-<thead>
-<tr><th>Uniform</th><th>Type</th><th>Meaning</th></tr>
-</thead>
-<tbody>
-<tr><td><code>u_resolution</code></td><td><code>vec2</code></td><td>Actual canvas width and height in backing pixels.</td></tr>
-<tr><td><code>u_time</code></td><td><code>float</code></td><td>Elapsed animation time in seconds.</td></tr>
-<tr><td><code>u_mouse</code></td><td><code>vec2</code></td><td>Normalized pointer position from 0.0 to 1.0.</td></tr>
-</tbody>
-</table>
-</div>
-<div class="callout">
-<strong>Porting from ShaderToy:</strong>
-          map <code>iResolution.xy</code> to <code>u_resolution</code>,
-          <code>iTime</code> to <code>u_time</code>, and normalized mouse input to
-          <code>u_mouse</code>. Remove ShaderToy-only channels unless you inscribe or recursively
-          reference those resources.
-        </div>
-</section>
-<section class="section" id="test-local">
-<span class="step-kicker">Step 3</span>
-<h2>Test locally before touching Bitcoin</h2>
-<ol>
-<li>Double-click <code>index.html</code> or drag it into the browser.</li>
-<li>Resize the window and rotate a mobile device to confirm the shader stays proportional.</li>
-<li>Open Developer Tools and inspect the Console.</li>
-<li>Move the pointer to confirm interactive uniforms update.</li>
-<li>Leave the page running for several minutes to catch context or performance problems.</li>
-</ol>
-<h3>Expected result</h3>
-<p>
-          You should see an animated, full-window abstract field with no scrollbars and no console
-          errors. The image should fill the viewport without appearing horizontally stretched.
-        </p>
-<div class="callout warning">
-<strong>A visual result is not enough.</strong>
-          A shader can render while still producing warnings, losing precision on some GPUs, or
-          depending on browser behavior that will not survive an inscription sandbox. Read the
-          console and test more than one browser.
-        </div>
-</section>
-<section class="section" id="preflight">
-<span class="step-kicker">Step 4</span>
-<h2>Preflight the final inscription file</h2>
-<ul class="checklist">
-<li>The file is named clearly and opens directly without a build step.</li>
-<li>Every required script and shader is embedded inside the HTML.</li>
-<li>There are no ordinary off-chain image, font, audio, CSS, or JavaScript requests.</li>
-<li>The shader compiles with no console errors in at least two browsers.</li>
-<li>The canvas handles desktop, mobile, portrait, landscape, and high-DPI screens.</li>
-<li>The artwork remains usable without keyboard, pointer, or audio input.</li>
-<li>The receiving address belongs to an Ordinals-aware wallet you control.</li>
-<li>You saved an exact local copy and a checksum of the file being inscribed.</li>
-</ul>
-<h3>Create a checksum</h3>
-<div class="code-card">
-<div class="code-head">
-<span class="code-label">Terminal — optional integrity check</span>
-<button class="copy-button" type="button">Copy</button>
-</div>
-<pre><code>shasum -a 256 index.html
+                    </div>
+                    <h3>The three uniforms</h3>
+                    <div class="data-table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Uniform</th>
+                                    <th>Type</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>u_resolution</code></td>
+                                    <td><code>vec2</code></td>
+                                    <td>Actual canvas width and height in backing pixels.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>u_time</code></td>
+                                    <td><code>float</code></td>
+                                    <td>Elapsed animation time in seconds.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>u_mouse</code></td>
+                                    <td><code>vec2</code></td>
+                                    <td>Normalized pointer position from 0.0 to 1.0.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="callout">
+                        <strong>Porting from ShaderToy:</strong> map <code>iResolution.xy</code> to <code>u_resolution</code>,
+                        <code>iTime</code> to <code>u_time</code>, and normalized mouse input to
+                        <code>u_mouse</code>. Remove ShaderToy-only channels unless you inscribe or recursively reference those resources.
+                    </div>
+                </section>
+                <section class="section" id="test-local">
+                    <span class="step-kicker">Step 3</span>
+                    <h2>Test locally before touching Bitcoin</h2>
+                    <ol>
+                        <li>Double-click <code>index.html</code> or drag it into the browser.</li>
+                        <li>Resize the window and rotate a mobile device to confirm the shader stays proportional.</li>
+                        <li>Open Developer Tools and inspect the Console.</li>
+                        <li>Move the pointer to confirm interactive uniforms update.</li>
+                        <li>Leave the page running for several minutes to catch context or performance problems.</li>
+                    </ol>
+                    <h3>Expected result</h3>
+                    <p>
+                        You should see an animated, full-window abstract field with no scrollbars and no console errors. The image should fill the viewport without appearing horizontally stretched.
+                    </p>
+                    <div class="callout warning">
+                        <strong>A visual result is not enough.</strong> A shader can render while still producing warnings, losing precision on some GPUs, or depending on browser behavior that will not survive an inscription sandbox. Read the console
+                        and test more than one browser.
+                    </div>
+                </section>
+                <section class="section" id="preflight">
+                    <span class="step-kicker">Step 4</span>
+                    <h2>Preflight the final inscription file</h2>
+                    <ul class="checklist">
+                        <li>The file is named clearly and opens directly without a build step.</li>
+                        <li>Every required script and shader is embedded inside the HTML.</li>
+                        <li>There are no ordinary off-chain image, font, audio, CSS, or JavaScript requests.</li>
+                        <li>The shader compiles with no console errors in at least two browsers.</li>
+                        <li>The canvas handles desktop, mobile, portrait, landscape, and high-DPI screens.</li>
+                        <li>The artwork remains usable without keyboard, pointer, or audio input.</li>
+                        <li>The receiving address belongs to an Ordinals-aware wallet you control.</li>
+                        <li>You saved an exact local copy and a checksum of the file being inscribed.</li>
+                    </ul>
+                    <h3>Create a checksum</h3>
+                    <div class="code-card">
+                        <div class="code-head">
+                            <span class="code-label">Terminal — optional integrity check</span>
+                            <button class="copy-button" type="button">Copy</button>
+                        </div>
+                        <pre><code>shasum -a 256 index.html
 # Windows PowerShell:
 Get-FileHash .\index.html -Algorithm SHA256</code></pre>
-</div>
-<p>
-          Save the checksum beside your project notes. It gives you a simple way to prove which
-          local file corresponds to the inscribed payload.
-        </p>
-</section>
-<section class="section" id="file-size">
-<span class="step-kicker">Step 5</span>
-<h2>Check file size and estimate fees</h2>
-<p>
-          Larger files cost more because inscription content is included in transaction witness
-          data. For the standard <code>ord</code> wallet path, the official guide states that
-          inscription transactions must remain below 400,000 weight units for standard relay and
-          recommends keeping content below roughly 390,000 bytes to leave transaction overhead.
-        </p>
-<div class="callout warning">
-<strong>Do not treat “4 MB” as the working file target.</strong>
-          Bitcoin’s block-weight ceiling, transaction relay policy, the inscription tool, and the
-          selected workflow are different constraints. Use the limit shown by your actual tool and
-          keep a meaningful safety margin.
-        </div>
-<h3>Measure the file</h3>
-<div class="code-card">
-<div class="code-head">
-<span class="code-label">Terminal — file size</span>
-<button class="copy-button" type="button">Copy</button>
-</div>
-<pre><code>wc -c index.html
+                    </div>
+                    <p>
+                        Save the checksum beside your project notes. It gives you a simple way to prove which local file corresponds to the inscribed payload.
+                    </p>
+                </section>
+                <section class="section" id="file-size">
+                    <span class="step-kicker">Step 5</span>
+                    <h2>Check file size and estimate fees</h2>
+                    <p>
+                        Larger files cost more because inscription content is included in transaction witness data. For the standard <code>ord</code> wallet path, the official guide states that inscription transactions must remain below 400,000 weight
+                        units for standard relay and recommends keeping content below roughly 390,000 bytes to leave transaction overhead.
+                    </p>
+                    <div class="callout warning">
+                        <strong>Do not treat “4 MB” as the working file target.</strong> Bitcoin’s block-weight ceiling, transaction relay policy, the inscription tool, and the selected workflow are different constraints. Use the limit shown by your actual
+                        tool and keep a meaningful safety margin.
+                    </div>
+                    <h3>Measure the file</h3>
+                    <div class="code-card">
+                        <div class="code-head">
+                            <span class="code-label">Terminal — file size</span>
+                            <button class="copy-button" type="button">Copy</button>
+                        </div>
+                        <pre><code>wc -c index.html
 # Human-readable:
 ls -lh index.html
 # Windows PowerShell:
 (Get-Item .\index.html).Length</code></pre>
-</div>
-<h3>Reduce size without changing the artwork</h3>
-<ul>
-<li>Remove comments, unused functions, disabled shader experiments, and debug output.</li>
-<li>Shorten internal variable names only after the shader is final and backed up.</li>
-<li>Avoid external libraries when a few lines of native WebGL can do the same work.</li>
-<li>Do not minify blindly; retest the exact optimized file in the browser.</li>
-</ul>
-</section>
-<section class="section" id="inscribe-service">
-<span class="step-kicker">Step 6</span>
-<h2>Inscribe with LooksOrdinal</h2>
-<p>
-          LooksOrdinal currently presents a self-custodial inscription interface with a receiving
-          address field, standard file inscriptions, fee-rate controls, fee estimation, and optional
-          advanced settings.
-        </p>
-<ol>
-<li>Open LooksOrdinal in Chrome or Firefox; its current page warns that Safari may not work.</li>
-<li>Paste the Ordinals-compatible receiving address from your wallet.</li>
-<li>Choose <strong>Standard</strong>, then <strong>files</strong>.</li>
-<li>Select the exact tested <code>index.html</code>.</li>
-<li>Review whether the file has already been inscribed if the interface offers that check.</li>
-<li>Select a fee rate based on current network conditions and your urgency.</li>
-<li>Use <strong>Estimate Fees</strong> before starting.</li>
-<li>Review padding, CPFP, turbo, backup, and tip options rather than enabling them blindly.</li>
-<li>Start the inscription and follow the displayed wallet/payment instructions.</li>
-<li>Keep the browser page open while the service explicitly tells you to do so.</li>
-</ol>
-<div class="callout danger">
-<strong>Verify every address on-screen and in the wallet.</strong>
-          Copy/paste errors, clipboard malware, an exchange address, or a non-Ordinals-aware wallet
-          can permanently misdirect the inscription or its carrier sat.
-        </div>
-<h3>Track the transactions</h3>
-<p>
-          An inscription uses a commit transaction followed by a reveal transaction. Use the
-          transaction links supplied by the service and inspect them in a Bitcoin block explorer
-          such as mempool.space. The inscription becomes available after the reveal is mined and
-          indexed.
-        </p>
-</section>
-<section class="section" id="inscribe-cli">
-<span class="step-kicker">Step 7</span>
-<h2>Optional: inscribe with the ord wallet CLI</h2>
-<p>
-          The command-line path is useful when you run Bitcoin Core and <code>ord</code>, control
-          the wallet directly, and want the official workflow rather than a hosted interface.
-        </p>
-<div class="code-card">
-<div class="code-head">
-<span class="code-label">ord wallet — core command sequence</span>
-<button class="copy-button" type="button">Copy</button>
-</div>
-<pre><code># Fund the ord wallet first.
+                    </div>
+                    <h3>Reduce size without changing the artwork</h3>
+                    <ul>
+                        <li>Remove comments, unused functions, disabled shader experiments, and debug output.</li>
+                        <li>Shorten internal variable names only after the shader is final and backed up.</li>
+                        <li>Avoid external libraries when a few lines of native WebGL can do the same work.</li>
+                        <li>Do not minify blindly; retest the exact optimized file in the browser.</li>
+                    </ul>
+                </section>
+                <section class="section" id="inscribe-service">
+                    <span class="step-kicker">Step 6</span>
+                    <h2>Inscribe with LooksOrdinal</h2>
+                    <p>
+                        LooksOrdinal currently presents a self-custodial inscription interface with a receiving address field, standard file inscriptions, fee-rate controls, fee estimation, and optional advanced settings.
+                    </p>
+                    <ol>
+                        <li>Open LooksOrdinal in Chrome or Firefox; its current page warns that Safari may not work.</li>
+                        <li>Paste the Ordinals-compatible receiving address from your wallet.</li>
+                        <li>Choose <strong>Standard</strong>, then <strong>files</strong>.</li>
+                        <li>Select the exact tested <code>index.html</code>.</li>
+                        <li>Review whether the file has already been inscribed if the interface offers that check.</li>
+                        <li>Select a fee rate based on current network conditions and your urgency.</li>
+                        <li>Use <strong>Estimate Fees</strong> before starting.</li>
+                        <li>Review padding, CPFP, turbo, backup, and tip options rather than enabling them blindly.</li>
+                        <li>Start the inscription and follow the displayed wallet/payment instructions.</li>
+                        <li>Keep the browser page open while the service explicitly tells you to do so.</li>
+                    </ol>
+                    <div class="callout danger">
+                        <strong>Verify every address on-screen and in the wallet.</strong> Copy/paste errors, clipboard malware, an exchange address, or a non-Ordinals-aware wallet can permanently misdirect the inscription or its carrier sat.
+                    </div>
+                    <h3>Track the transactions</h3>
+                    <p>
+                        An inscription uses a commit transaction followed by a reveal transaction. Use the transaction links supplied by the service and inspect them in a Bitcoin block explorer such as mempool.space. The inscription becomes available after the reveal is mined
+                        and indexed.
+                    </p>
+                </section>
+                <section class="section" id="inscribe-cli">
+                    <span class="step-kicker">Step 7</span>
+                    <h2>Optional: inscribe with the ord wallet CLI</h2>
+                    <p>
+                        The command-line path is useful when you run Bitcoin Core and <code>ord</code>, control the wallet directly, and want the official workflow rather than a hosted interface.
+                    </p>
+                    <div class="code-card">
+                        <div class="code-head">
+                            <span class="code-label">ord wallet — core command sequence</span>
+                            <button class="copy-button" type="button">Copy</button>
+                        </div>
+                        <pre><code># Fund the ord wallet first.
 ord wallet receive
 ord wallet outputs
 
@@ -1327,98 +1376,100 @@ ord wallet inscribe \
 
 # Check the wallet after the reveal confirms.
 ord wallet inscriptions</code></pre>
-</div>
-<div class="callout">
-          The CLI returns commit and reveal transaction IDs plus the inscription ID. The receiving,
-          funding, indexing, wallet safety, and Bitcoin Core setup requirements are beyond this
-          single-file WebGL tutorial; use the current Ordinal Theory Handbook for the complete node
-          and wallet procedure.
+                    </div>
+                    <div class="callout">
+                        The CLI returns commit and reveal transaction IDs plus the inscription ID. The receiving, funding, indexing, wallet safety, and Bitcoin Core setup requirements are beyond this single-file WebGL tutorial; use the current Ordinal Theory Handbook for the
+                        complete node and wallet procedure.
+                    </div>
+                </section>
+                <section class="section" id="verify">
+                    <span class="step-kicker">Step 8</span>
+                    <h2>Verify the on-chain result</h2>
+                    <ol>
+                        <li>Wait for the reveal transaction to confirm.</li>
+                        <li>Open the inscription in an Ordinals-compatible explorer.</li>
+                        <li>Open its direct content view, not only a marketplace preview.</li>
+                        <li>Confirm animation, resolution, pointer behavior, and mobile layout.</li>
+                        <li>Compare the displayed content with your local copy and saved checksum.</li>
+                        <li>Record the inscription ID, inscription number, reveal transaction, sat number, and receiving address.</li>
+                    </ol>
+                    <h3>Understanding the inscription ID</h3>
+                    <p>
+                        The ID uses the form <code>TXIDiN</code>: the transaction ID of the reveal followed by
+                        <code>i</code> and the inscription’s index inside that reveal transaction.
+                    </p>
+                </section>
+                <section class="section" id="troubleshooting">
+                    <span class="step-kicker">Diagnostics</span>
+                    <h2>Troubleshooting</h2>
+                    <div class="data-table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Likely cause</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Black or blank canvas</td>
+                                    <td>Shader compile failure, WebGL unavailable, or program link failure.</td>
+                                    <td>Open the console. The starter template prints the exact compiler/linker log.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>precision</code> error</td>
+                                    <td>The fragment shader has no floating-point precision declaration.</td>
+                                    <td>Add <code>precision highp float;</code> or fall back to <code>mediump</code> when required.</td>
+                                </tr>
+                                <tr>
+                                    <td>Artwork stretches on wide screens</td>
+                                    <td>Coordinates ignore aspect ratio.</td>
+                                    <td>Multiply centered <code>p.x</code> by <code>u_resolution.x / u_resolution.y</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Animation is too fast</td>
+                                    <td>Milliseconds were used directly.</td>
+                                    <td>Convert the animation timestamp to seconds with <code>* 0.001</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Looks different after inscription</td>
+                                    <td>Off-chain resources were blocked or explorer sandbox behavior differs.</td>
+                                    <td>Make the file self-contained or use supported recursive on-chain endpoints.</td>
+                                </tr>
+                                <tr>
+                                    <td>Transaction remains pending</td>
+                                    <td>Fee rate is below current demand.</td>
+                                    <td>Inspect commit and reveal separately; use CPFP only when the chosen workflow supports it and you understand the cost.</td>
+                                </tr>
+                                <tr>
+                                    <td>File rejected as too large</td>
+                                    <td>Tool or standard relay limit exceeded.</td>
+                                    <td>Reduce the file, use recursion for shared on-chain resources, or follow the tool’s documented alternative workflow.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="section" id="final-checklist">
+                    <span class="step-kicker">Before authorizing</span>
+                    <h2>Final checklist</h2>
+                    <ul class="checklist">
+                        <li>I am inscribing the exact final file I tested.</li>
+                        <li>The file is self-contained or uses only intentional recursive on-chain references.</li>
+                        <li>The shader compiles in multiple current browsers.</li>
+                        <li>The file is below the limit shown by my chosen workflow.</li>
+                        <li>The receiving address belongs to an Ordinals-aware wallet I control.</li>
+                        <li>I reviewed the current fee rate and total estimated cost.</li>
+                        <li>I recorded the local SHA-256 checksum.</li>
+                        <li>I understand the commit/reveal sequence and will verify both transactions.</li>
+                    </ul>
+                    <div class="callout success">
+                        Once every item is true, the file is ready for the inscription workflow.
+                    </div>
+                </section>
+            </main>
         </div>
-</section>
-<section class="section" id="verify">
-<span class="step-kicker">Step 8</span>
-<h2>Verify the on-chain result</h2>
-<ol>
-<li>Wait for the reveal transaction to confirm.</li>
-<li>Open the inscription in an Ordinals-compatible explorer.</li>
-<li>Open its direct content view, not only a marketplace preview.</li>
-<li>Confirm animation, resolution, pointer behavior, and mobile layout.</li>
-<li>Compare the displayed content with your local copy and saved checksum.</li>
-<li>Record the inscription ID, inscription number, reveal transaction, sat number, and receiving address.</li>
-</ol>
-<h3>Understanding the inscription ID</h3>
-<p>
-          The ID uses the form <code>TXIDiN</code>: the transaction ID of the reveal followed by
-          <code>i</code> and the inscription’s index inside that reveal transaction.
-        </p>
-</section>
-<section class="section" id="troubleshooting">
-<span class="step-kicker">Diagnostics</span>
-<h2>Troubleshooting</h2>
-<div class="data-table-wrap">
-<table>
-<thead>
-<tr><th>Problem</th><th>Likely cause</th><th>Action</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>Black or blank canvas</td>
-<td>Shader compile failure, WebGL unavailable, or program link failure.</td>
-<td>Open the console. The starter template prints the exact compiler/linker log.</td>
-</tr>
-<tr>
-<td><code>precision</code> error</td>
-<td>The fragment shader has no floating-point precision declaration.</td>
-<td>Add <code>precision highp float;</code> or fall back to <code>mediump</code> when required.</td>
-</tr>
-<tr>
-<td>Artwork stretches on wide screens</td>
-<td>Coordinates ignore aspect ratio.</td>
-<td>Multiply centered <code>p.x</code> by <code>u_resolution.x / u_resolution.y</code>.</td>
-</tr>
-<tr>
-<td>Animation is too fast</td>
-<td>Milliseconds were used directly.</td>
-<td>Convert the animation timestamp to seconds with <code>* 0.001</code>.</td>
-</tr>
-<tr>
-<td>Looks different after inscription</td>
-<td>Off-chain resources were blocked or explorer sandbox behavior differs.</td>
-<td>Make the file self-contained or use supported recursive on-chain endpoints.</td>
-</tr>
-<tr>
-<td>Transaction remains pending</td>
-<td>Fee rate is below current demand.</td>
-<td>Inspect commit and reveal separately; use CPFP only when the chosen workflow supports it and you understand the cost.</td>
-</tr>
-<tr>
-<td>File rejected as too large</td>
-<td>Tool or standard relay limit exceeded.</td>
-<td>Reduce the file, use recursion for shared on-chain resources, or follow the tool’s documented alternative workflow.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="section" id="final-checklist">
-<span class="step-kicker">Before authorizing</span>
-<h2>Final checklist</h2>
-<ul class="checklist">
-<li>I am inscribing the exact final file I tested.</li>
-<li>The file is self-contained or uses only intentional recursive on-chain references.</li>
-<li>The shader compiles in multiple current browsers.</li>
-<li>The file is below the limit shown by my chosen workflow.</li>
-<li>The receiving address belongs to an Ordinals-aware wallet I control.</li>
-<li>I reviewed the current fee rate and total estimated cost.</li>
-<li>I recorded the local SHA-256 checksum.</li>
-<li>I understand the commit/reveal sequence and will verify both transactions.</li>
-</ul>
-<div class="callout success">
-          Once every item is true, the file is ready for the inscription workflow.
-        </div>
-</section>
-</main>
-</div>
     </main>
 
     <footer class="site-footer">
@@ -1433,66 +1484,69 @@ ord wallet inscriptions</code></pre>
 
     <script>
         (() => {
-          "use strict";
+            "use strict";
 
-          const progress = document.querySelector(".reading-progress");
-          const sections = [...document.querySelectorAll(".section[id]")];
-          const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+            const progress = document.querySelector(".reading-progress");
+            const sections = [...document.querySelectorAll(".section[id]")];
+            const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
 
-          function updateProgress() {
-            if (!progress) return;
-            const root = document.documentElement;
-            const available = root.scrollHeight - root.clientHeight;
-            const percent = available > 0 ? (root.scrollTop / available) * 100 : 0;
-            progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-          }
+            function updateProgress() {
+                if (!progress) return;
+                const root = document.documentElement;
+                const available = root.scrollHeight - root.clientHeight;
+                const percent = available > 0 ? (root.scrollTop / available) * 100 : 0;
+                progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+            }
 
-          window.addEventListener("scroll", updateProgress, { passive: true });
-          updateProgress();
-
-          const observer = new IntersectionObserver((entries) => {
-            const visible = entries
-              .filter((entry) => entry.isIntersecting)
-              .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-            if (!visible.length) return;
-
-            const id = visible[0].target.id;
-            tocLinks.forEach((link) => {
-              link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+            window.addEventListener("scroll", updateProgress, {
+                passive: true
             });
-          }, {
-            rootMargin: "-20% 0px -68% 0px",
-            threshold: [0, 0.1, 0.25]
-          });
+            updateProgress();
 
-          sections.forEach((section) => observer.observe(section));
+            const observer = new IntersectionObserver((entries) => {
+                const visible = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
-          document.querySelectorAll(".copy-button").forEach((button) => {
-            button.addEventListener("click", async () => {
-              const card = button.closest(".code-card");
-              const code = card?.querySelector("code")?.innerText || "";
+                if (!visible.length) return;
 
-              try {
-                await navigator.clipboard.writeText(code);
-                const original = button.textContent;
-                button.textContent = "Copied";
-                setTimeout(() => {
-                  button.textContent = original;
-                }, 1400);
-              } catch {
-                button.textContent = "Select text";
-              }
+                const id = visible[0].target.id;
+                tocLinks.forEach((link) => {
+                    link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+                });
+            }, {
+                rootMargin: "-20% 0px -68% 0px",
+                threshold: [0, 0.1, 0.25]
             });
-          });
+
+            sections.forEach((section) => observer.observe(section));
+
+            document.querySelectorAll(".copy-button").forEach((button) => {
+                button.addEventListener("click", async() => {
+                    const card = button.closest(".code-card");
+                    const code = card ? .querySelector("code") ? .innerText || "";
+
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        const original = button.textContent;
+                        button.textContent = "Copied";
+                        setTimeout(() => {
+                            button.textContent = original;
+                        }, 1400);
+                    } catch {
+                        button.textContent = "Select text";
+                    }
+                });
+            });
         })();
     </script>
-<!-- Schwwaaa Footer Image Logo Spot -->
-<footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
-    <a class="schwwaaa-footer-logo" href="https://linktr.ee/schwwaaa" target="_blank" rel="noopener noreferrer">
-        <img class="schwwaaa-footer-image" src="./assets/schwwaaa-logo.png" alt="schwwaaa">
-    </a>
-</footer>
+    <!-- Schwwaaa Footer Image Logo Spot -->
+    <footer class="schwwaaa-footer" aria-label="schwwaaa footer logo">
+        <a class="schwwaaa-footer-logo" href="https://linktr.ee/schwwaaa" target="_blank" rel="noopener noreferrer">
+            <img class="schwwaaa-footer-image" src="./assets/schwwaaa-logo.png" alt="schwwaaa">
+        </a>
+    </footer>
 
 </body>
+
 </html>
